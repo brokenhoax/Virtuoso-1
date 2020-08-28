@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import './reset.css';
 import * as serviceWorker from './serviceWorker';
+import Logo from './components/logo/logo';
+import Navbar from './components/navbar/navbar';
+import Main from './components/main/main';
+import Stats from './components/stats/stats';
+import Topbar from './components/topbar/topbar';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <div class="grid-container">
+      <Logo />
+      <Navbar />
+      <Main />
+      <Topbar />
+      <Stats />
+      </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
