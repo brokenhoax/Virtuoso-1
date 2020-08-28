@@ -14,7 +14,7 @@ class Navbar extends Component {
     render() { 
         return ( 
 
-            <section class="navi">
+            <section className="navi">
                 <FontAwesomeIcon className="navlink" icon={faUser} size="lg" />
                 <FontAwesomeIcon className="navlink" icon={faHeart} size="lg" />
                 <FontAwesomeIcon className="navlink" icon={faUsers} size="lg" />

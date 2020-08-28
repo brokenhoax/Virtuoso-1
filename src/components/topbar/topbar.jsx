@@ -4,8 +4,7 @@ class Topbar extends Component {
 
     render() { 
         return ( 
-
-            <div class="topbar"></div>
+            <div className="topbar"></div>
          );
     }
 }

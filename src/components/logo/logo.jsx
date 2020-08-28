@@ -5,7 +5,7 @@ class Logo extends Component {
 
     render() { 
         return ( 
-            <section class="logo">V</section>
+            <section className="logo">V</section>
          );
     }
 }
