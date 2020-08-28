@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "permanent";
+  src: url(./fonts/permanent.ttf)
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+  background-color: #293241;
+}
+
+body {
+  color: white;
+  margin: 0;
+  height: 100vh;
+  font-size: 1.8rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 80px 7fr 1fr;
+  grid-template-rows: 80px 10.5fr;
+  grid-template-areas:
+  "logo   topbar  topbar"
+  "navi   main    stats";
+  height: 100vh;
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  background-color: #A664E3;
+  font-family: 'permanent', cursive;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
+.topbar {
+  grid-area: topbar;
+  background-color: #293241;
+  opacity: 90%;
+}
+
+.navi {
+  grid-area: navi;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #5F82D9;
+  color:white;
+  width: 100%;
+}
+
+.navlink {
+  padding-top: 4rem;
+}
+
+
+.main {
+  grid-area: main;
+  background-color: #f2f4f8;
+}
+
+.stats {
+  grid-area: stats;
+  background-color:#e5defc;
+}
+
+.navcontainer {
+
 }
