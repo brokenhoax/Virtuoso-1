@@ -13,7 +13,6 @@
   grid-template-areas:
     "totalWeb     totalHours    timeline"
     "genre        presenter     skill";
-  grid-gap: 25px;
 }
 
 /* ========= CHARTS ========== */
@@ -50,6 +49,7 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  color: #293241;
 }
 
 .webinars {
@@ -60,6 +60,7 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  color: #293241;
 }
 
 .totalWeb {
@@ -85,15 +86,7 @@
   position: absolute;
   width: 90%;
   height: 60%;
-  top: 33%;
-}
-
-.presenter {
-  grid-area: presenter;
-  position: absolute;
-  width: 90%;
-  height: 30%;
-  top: 33%;
+  top: 30%;
 }
 
 .skill {
@@ -101,5 +94,14 @@
   position: absolute;
   width: 90%;
   height: 60%;
+  top: 33%;
+}
+
+.presenter {
+  grid-area: presenter;
+  display: block;
+  position: absolute;
+  width: 90%;
+  height: 30%;
   top: 33%;
 }

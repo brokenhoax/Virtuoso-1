@@ -8,6 +8,11 @@ import Presenter from "../charts/presenter/Presenter";
 import Skill from "../charts/skill/Skill";
 
 class Stats extends Component {
+  state = {
+    display: true,
+    position: "right",
+  };
+
   render() {
     return (
       <div className={styles.chartContainer}>
@@ -32,6 +37,8 @@ class Stats extends Component {
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           genre={styles.genre}
+          display={this.state.display}
+          position={this.state.position}
         />
         <Presenter
           chart={styles.chart}
@@ -42,14 +49,12 @@ class Stats extends Component {
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           skill={styles.skill}
+          display={this.state.display}
+          position={this.state.position}
         />
       </div>
     );
   }
 }
-
-// getStatsClass() {
-//     let statsClass =
-// }
 
 export default Stats;
