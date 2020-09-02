@@ -12,11 +12,6 @@ class Genre extends Component {
   //     // this.state = this.props.something;
   //   }
 
-  constructor(props) {
-    super(props);
-    // this.handleChange = this.handleChange.bind(this);
-  }
-
   componentDidMount() {
     this.circleChart();
   }

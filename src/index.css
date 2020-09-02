@@ -1,6 +1,6 @@
 @font-face {
   font-family: "permanent";
-  src: url(./fonts/permanent.ttf)
+  src: url(./fonts/permanent.ttf);
 }
 
 html {
@@ -25,12 +25,13 @@ a:link {
   grid-template-columns: 80px 7fr 1fr;
   grid-template-rows: 80px 10.5fr;
   grid-template-areas:
-  "logo   topbar  topbar"
-  "navi   main    sidebar";
+    "logo   topbar  topbar"
+    "navi   main    sidebar";
   height: 100vh;
 }
 
 .main {
   grid-area: main;
   background-color: #f2f4f8;
+  padding: 20px;
 }

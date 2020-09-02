@@ -1,12 +1,17 @@
-import React from 'react';
+import React from "react";
 import "./Calendar.css";
+import { Calendar } from "antd";
 
-const Calendar = () => {
-    return ( 
-        <div className="main">
-            <h1>Check out this sweet calendar!</h1>
-        </div>
-     );
+function onPanelChange(value, mode) {
+  console.log(value.format("YYYY-MM-DD"), mode);
 }
- 
-export default Calendar;
+
+const Test = () => {
+  return (
+    <div className="main">
+      <Calendar />
+    </div>
+  );
+};
+
+export default Test;

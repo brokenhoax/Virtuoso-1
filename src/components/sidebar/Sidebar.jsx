@@ -7,7 +7,7 @@ import Presenter from "../charts/presenter/Presenter";
 import styles from "./Sidebar.module.css";
 // import styles from "./test.css";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <div className={styles.sideContainer}>
       <CountWebinars
@@ -26,6 +26,8 @@ const Sidebar = () => {
         chart={styles.chart}
         chartHeader={styles.chartHeader}
         genre={styles.genre}
+        display={props.display}
+        position={props.position}
       />
       <Skill
         chart={styles.chart}
