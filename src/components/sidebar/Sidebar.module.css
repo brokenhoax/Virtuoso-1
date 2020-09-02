@@ -1,93 +1,89 @@
 .sidebar {
-    grid-area: sidebar;
-    background-color:#e5defc;
-  }
+  grid-area: sidebar;
+  background-color: #e5defc;
+}
 
-  /* ========= GRID ========== */
-  
-  .sideContainer {
-    display: grid;
-    position: relative;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "totalWeb"    
+/* ========= GRID ========== */
+
+.sideContainer {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "totalWeb"
     "totalHours"
     "genre"
-    "presenter"     
+    "presenter"
     "skill";
 }
 
-  /* ========= CHARTS ========== */
+/* ========= CHARTS ========== */
 
 .chart {
-    display: flex;
-    position: relative;
-    background-color: #e4e1ec;
-    color: #293241;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  position: relative;
+  background-color: #e4e1ec;
+  color: #293241;
+  justify-content: center;
+  text-align: center;
 }
 
 .chartHeader {
-    font-size: 1.2rem;
-    padding: 1rem;
+  font-size: 1.2rem;
+  padding: 1rem;
 }
 
 .hours {
-    font-size: 4rem;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  font-size: 4rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .webinars {
-    font-size: 4rem;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);    
+  font-size: 4rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .totalWeb {
-    grid-area: totalWeb;
-
+  grid-area: totalWeb;
 }
 
 .totalHours {
-    grid-area: totalHours;
+  grid-area: totalHours;
 }
 
-
 .presenter {
-    grid-area: presenter;
-    position: absolute;
-    width: 90%;
-    height: 60%;
-    top: 33%;
+  grid-area: presenter;
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  top: 33%;
 }
 
 .genre {
-    grid-area: genre;
-    position: absolute;
-    height: 60%;
-    width: 100%;
-    top: 33%;
-    overflow: hidden;
-
+  grid-area: genre;
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  top: 33%;
+  overflow: hidden;
 }
 
 .skill {
-    grid-area: skill;
-    position: absolute;
-    height: 60%;
-    top: 33%;  
-    overflow: hidden;
-    width: 100%;
+  grid-area: skill;
+  position: absolute;
+  height: 60%;
+  top: 33%;
+  overflow: hidden;
+  width: 100%;
 }
-
