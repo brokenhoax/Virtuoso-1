@@ -13,6 +13,7 @@ body {
   margin: 0;
   height: 100vh;
   font-size: 1.8rem;
+  font-family: "permanent";
 }
 
 a:link {
@@ -25,51 +26,11 @@ a:link {
   grid-template-rows: 80px 10.5fr;
   grid-template-areas:
   "logo   topbar  topbar"
-  "navi   main    stats";
+  "navi   main    sidebar";
   height: 100vh;
 }
-
-.logo {
-  grid-area: logo;
-  display: flex;
-  background-color: #A664E3;
-  font-family: 'permanent', cursive;
-  justify-content: center;
-  align-items: center;
-  font-size: 5rem;
-}
-
-.topbar {
-  grid-area: topbar;
-  background-color: #293241;
-  opacity: 90%;
-}
-
-.navi {
-  grid-area: navi;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #5F82D9;
-  color:white;
-  width: 100%;
-}
-
-.navlink {
-  padding-top: 4rem;
-}
-
 
 .main {
   grid-area: main;
   background-color: #f2f4f8;
-}
-
-.stats {
-  grid-area: stats;
-  background-color:#e5defc;
-}
-
-.navcontainer {
-
 }
