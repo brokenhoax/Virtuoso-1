@@ -1,0 +1,31 @@
+.chart-container {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "webinars     hours         activity"
+    "genre        presenter     skill";
+    grid-gap: 25px;
+}
+
+.chart {
+    position: relative;
+    border-radius: 10px;
+    background-color: #e4e1ec;
+    display: grid;
+    align-content: center;
+}
+
+.chart-header {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 2rem;
+    color: #293241;
+}
+
+
+/* display: flex;
+align-items: center;
+justify-content:center; */

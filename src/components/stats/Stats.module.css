@@ -1,0 +1,107 @@
+/* .stats {
+    padding: 20px;
+    font-family: 'permanent', cursive;
+} */
+
+/* ========= GRID ========== */
+
+.chartContainer {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "totalWeb     totalHours    timeline"
+    "genre        presenter     skill";
+}
+
+/* ========= CHARTS ========== */
+
+.chart {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 8fr;
+  grid-template-areas:
+    "chartHeader"
+    "graph";
+  position: relative;
+  border-radius: 10px;
+  background-color: #e4e1ec;
+  justify-items: center;
+  height: 40vh;
+  margin: 2rem;
+}
+
+.chartHeader {
+  display: grid;
+  grid-area: chartHeader;
+  place-items: center;
+  top: 200px;
+  font-size: 2rem;
+  color: #293241;
+}
+
+.hours {
+  font-size: 6rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #293241;
+}
+
+.webinars {
+  font-size: 6rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #293241;
+}
+
+.totalWeb {
+  grid-area: totalWeb;
+  font-size: 6rem;
+}
+
+.totalHours {
+  grid-area: totalHours;
+  font-size: 6rem;
+}
+
+.timeline {
+  grid-area: presenter;
+  position: absolute;
+  width: 90%;
+  height: 30%;
+  top: 33%;
+}
+
+.genre {
+  grid-area: genre;
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  top: 30%;
+}
+
+.skill {
+  grid-area: skill;
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  top: 33%;
+}
+
+.presenter {
+  grid-area: presenter;
+  display: block;
+  position: absolute;
+  width: 90%;
+  height: 30%;
+  top: 33%;
+}
