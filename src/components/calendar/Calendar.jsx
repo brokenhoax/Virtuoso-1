@@ -8,7 +8,7 @@ function onPanelChange(value, mode) {
 
 const Test = () => {
   return (
-    <div className="main">
+    <div className="main boom">
       <Calendar />
     </div>
   );

@@ -19,3 +19,9 @@
 .notes-month section {
   font-size: 28px;
 }
+
+.boom {
+  display: grid;
+  justify-items: center;
+  align-content: stetch;
+}

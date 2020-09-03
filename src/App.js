@@ -16,7 +16,6 @@ const App = () => {
         <Logo />
         <Topbar />
         <Navbar />
-
         <Route path="/" exact component={Webinars} />
         <Route path="/stats" component={Stats} />
         <Route path="/calendar" component={Test} />

@@ -1,9 +1,10 @@
 .logo {
-    grid-area: logo;
-    display: flex;
-    background-color: #A664E3;
-    font-family: 'permanent', cursive;
-    justify-content: center;
-    align-items: center;
-    font-size: 5rem;
-  }
+  grid-area: logo;
+  display: flex;
+  background-color: #a664e3;
+  font-family: "permanent", cursive;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  color: #e4e1ec;
+}

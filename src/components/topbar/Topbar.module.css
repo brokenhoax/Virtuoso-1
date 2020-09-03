@@ -1,5 +1,5 @@
 .topbar {
-    grid-area: topbar;
-    background-color: #293241;
-    opacity: 90%;
-  }
+  grid-area: topbar;
+  background-color: #293241;
+  opacity: 90%;
+}
