@@ -1,30 +1,45 @@
 .chart-container {
-    display: grid;
-    position: relative;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
     "webinars     hours         activity"
     "genre        presenter     skill";
-    grid-gap: 25px;
+  grid-gap: 25px;
 }
 
 .chart {
-    position: relative;
-    border-radius: 10px;
-    background-color: #e4e1ec;
-    display: grid;
-    align-content: center;
+  position: relative;
+  border-radius: 10px;
+  background-color: #e4e1ec;
+  display: grid;
+  align-content: center;
 }
 
 .chart-header {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    font-size: 2rem;
-    color: #293241;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 2rem;
+  color: #293241;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 80px 7fr 1fr;
+  grid-template-rows: 80px 10.5fr;
+  grid-template-areas:
+    "logo   topbar  topbar"
+    "navi   main    sidebar";
+  height: 100vh;
+}
+
+.main {
+  grid-area: main;
+  background-color: #f2f4f8;
+  padding: 2px;
+}
 
 /* display: flex;
 align-items: center;

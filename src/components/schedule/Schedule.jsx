@@ -1,12 +1,12 @@
 import React from "react";
-import "./Calendar.css";
+import "./Schedule.css";
 import { Calendar } from "antd";
 
 function onPanelChange(value, mode) {
   console.log(value.format("YYYY-MM-DD"), mode);
 }
 
-const Test = () => {
+const Schedule = () => {
   return (
     <div className="main boom">
       <Calendar />
@@ -14,4 +14,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Schedule;

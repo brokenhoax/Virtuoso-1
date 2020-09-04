@@ -1,6 +1,4 @@
-
-
 .webinars {
-    grid-area: webinars;
-    font-size: 8rem;
+  grid-area: main;
+  font-size: 8rem;
 }

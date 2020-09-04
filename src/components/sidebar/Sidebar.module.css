@@ -86,3 +86,9 @@
   overflow: hidden;
   width: 100%;
 }
+
+.main {
+  grid-area: main;
+  background-color: #f2f4f8;
+  padding: 2px;
+}

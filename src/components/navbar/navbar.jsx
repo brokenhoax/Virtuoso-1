@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Navlink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -12,43 +13,51 @@ class Navbar extends Component {
   render() {
     return (
       <section className={styles.navContainer}>
-        <ul class={styles.navList}>
-          <li className={styles.navi}>
+        <Link to="/profile">
+          <div className={styles.navi}>
             <FontAwesomeIcon
               className={styles.navLink}
               icon={faUser}
-              size="lg"
+              size="2x"
             />
-          </li>
-          <li className={styles.navi}>
+          </div>
+        </Link>{" "}
+        <Link to="/webinars">
+          <div className={styles.navi}>
             <FontAwesomeIcon
               className={styles.navLink}
               icon={faUsers}
-              size="lg"
+              size="2x"
             />
-          </li>
-          <li className={styles.navi}>
+          </div>
+        </Link>{" "}
+        <Link to="/schedule">
+          <div className={styles.navi}>
             <FontAwesomeIcon
               className={styles.navLink}
               icon={faCalendarAlt}
-              size="lg"
+              size="2x"
             />
-          </li>
-          <li className={styles.navi}>
+          </div>
+        </Link>{" "}
+        <Link to="/create">
+          <div className={styles.navi}>
             <FontAwesomeIcon
               className={styles.navLink}
               icon={faVideo}
-              size="lg"
+              size="2x"
             />
-          </li>
-          <li className={styles.navi}>
+          </div>
+        </Link>{" "}
+        <Link to="/stats">
+          <div className={styles.navi}>
             <FontAwesomeIcon
               className={styles.navLink}
               icon={faChartPie}
-              size="lg"
+              size="2x"
             />
-          </li>
-        </ul>
+          </div>
+        </Link>{" "}
       </section>
     );
   }
