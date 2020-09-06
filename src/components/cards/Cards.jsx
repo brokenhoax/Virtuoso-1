@@ -5,39 +5,62 @@ import CardItem from "../cardItem/CardItem";
 const Cards = () => {
   return (
     <div className={styles.cards}>
-      <h1>Upcoming Webinars!</h1>
-      <div className={styles.cardsContainer}>
+      <h1 className={styles.cards__title}>Upcoming Webinars</h1>
+      <div className={styles.cards__container}>
         <div className={styles.cards__wrapper}>
-          <ul className={styles.cards__items}>
+          <ul className={styles.cards__list}>
             <CardItem
               src="images/img-9.jpg"
-              text="Learn JavaScript!"
+              title="Learn JavaScript!"
+              skill="Intermediate"
+              date="10/31/2020"
+              time="12:00 EST"
+              duration="45 minutes"
+              topic="JavaScript"
               label="JavaScript"
               path="/webinars"
             />
             <CardItem
               src="images/Mongodb.png"
-              text="Learn Python!"
+              title="Learn Python!"
+              skill="Intermediate"
+              date="10/31/2020"
+              time="12:00 EST"
+              duration="45 minutes"
+              topic="Python"
               label="Python"
               path="/webinars"
             />
-          </ul>
-          <ul className={styles.cards__items}>
             <CardItem
               src="images/Mongodb.png"
-              text="Learn Ruby!"
+              title="Learn Ruby!"
+              skill="Intermediate"
+              date="10/31/2020"
+              time="12:00 EST"
+              duration="45 minutes"
               label="Ruby"
+              topic="Ruby"
               path="/webinars"
             />
             <CardItem
               src="images/Mongodb.png"
-              text="Learn React"
+              title="Learn React"
+              skill="Advanced"
+              date="10/31/2020"
+              time="12:00 EST"
+              duration="45 minutes"
+              topic="React"
               label="React"
               path="/webinars"
             />
             <CardItem
               src="images/Mongodb.png"
-              text="Learn CSS"
+              title="Learn CSS"
+              skill="Beginner"
+              date="10/31/2020"
+              time="12:00 EST"
+              duration="45 minutes"
+              topic="CSS"
               label="CSS"
               path="/webinars"
             />
