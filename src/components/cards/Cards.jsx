@@ -10,7 +10,7 @@ const Cards = () => {
         <div className={styles.cards__wrapper}>
           <ul className={styles.cards__list}>
             <CardItem
-              src="images/img-9.jpg"
+              src={"assets/images/javascript.png"}
               title="Learn JavaScript!"
               skill="Intermediate"
               date="10/31/2020"
@@ -21,29 +21,29 @@ const Cards = () => {
               path="/webinars"
             />
             <CardItem
-              src="images/Mongodb.png"
-              title="Learn Python!"
+              src={"assets/images/heroku.png"}
+              title="Learn Heroku!"
               skill="Intermediate"
               date="10/31/2020"
               time="12:00 EST"
               duration="45 minutes"
-              topic="Python"
-              label="Python"
+              topic="Heroku"
+              label="Heroku"
               path="/webinars"
             />
             <CardItem
-              src="images/Mongodb.png"
-              title="Learn Ruby!"
-              skill="Intermediate"
+              src={"assets/images/html.png"}
+              title="Learn HTML!"
+              skill="Beginner"
               date="10/31/2020"
               time="12:00 EST"
               duration="45 minutes"
-              label="Ruby"
-              topic="Ruby"
+              label="HTML"
+              topic="HTML"
               path="/webinars"
             />
             <CardItem
-              src="images/Mongodb.png"
+              src={"assets/images/react.jpg"}
               title="Learn React"
               skill="Advanced"
               date="10/31/2020"
@@ -54,14 +54,14 @@ const Cards = () => {
               path="/webinars"
             />
             <CardItem
-              src="images/Mongodb.png"
-              title="Learn CSS"
+              src={"assets/images/mongo.png"}
+              title="Learn MongoDb"
               skill="Beginner"
               date="10/31/2020"
               time="12:00 EST"
               duration="45 minutes"
-              topic="CSS"
-              label="CSS"
+              topic="MongoDb"
+              label="MongoDb"
               path="/webinars"
             />
           </ul>
