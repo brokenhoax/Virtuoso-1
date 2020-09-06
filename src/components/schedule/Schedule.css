@@ -1,27 +1,51 @@
 @import "~antd/dist/antd.css";
 
-.events {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.ant-picker-calendar-full {
+  font-family: "permanent", cursive;
 }
+
+.ant-picker-calendar-header {
+  background-color: #a664e3;
+  padding: 0.5rem 0.5rem 0.5rem 0rem;
+}
+
+.ant-picker-date-panel {
+  background-color: #e4e1ec;
+}
+
+/* .events {
+  list-style: none;
+  margin: 0rem;
+  padding: 0rem;
+}
+
 .events .ant-badge-status {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
   text-overflow: ellipsis;
-  font-size: 12px;
-}
-.notes-month {
+  font-size: 1rem;
+} */
+
+/* .notes-month {
   text-align: center;
-  font-size: 28px;
-}
-.notes-month section {
-  font-size: 28px;
+  font-size: 1rem;
 }
 
-.boom {
+.notes-month section {
+  font-size: 1rem;
+} */
+
+/* .ant-picker-cell {
+  background-color: #e4e1ec;
+}
+
+.ant-picker-cell-in-view {
+  background-color: #a664e3;
+} */
+
+/* .boom {
   display: grid;
   justify-items: center;
   align-content: stetch;
-}
+} */
