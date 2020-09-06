@@ -1,0 +1,52 @@
+.cards {
+  margin-left: 20%;
+  margin-right: 10%;
+}
+
+.cards__title {
+  font-size: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+
+}
+
+.cardsContainer {
+  height: 80vh;
+  background-color: purple;
+}
+
+.cards__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-decoration: none;
+  flex-basis: auto;
+  justify-content: space-evenly;
+  list-style-type: none;
+  padding: 0;  
+  margin: 0;
+  
+}
+
+.cards__list__items {
+  margin: 10px;
+
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px gray;
+  width: 20rem;
+  padding: 10px;
+
+}
+
+.cards__item__info {
+  background-color: pink;
+  background-color: blue;
+}
+
+.testtt {
+  border-style: solid;
+  border-color: pink;
+  background-color: blue;
+  border-width: 10px;
+}

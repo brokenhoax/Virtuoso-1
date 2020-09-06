@@ -1,0 +1,58 @@
+:root {
+  --clr-primary: #293241;
+  --clr-body: #e4e1ec;
+  --clr-bg: #a664e3;
+}
+
+.content {
+  background: white;
+  display: grid;
+  position: relative;
+  border-radius: 20px;
+  top: 15px;
+  right: 1rem;
+  float: right;
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+}
+
+.searchBarInput {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  background: transparent;
+  border: 2px var(--clr-bg);
+  border-radius: 20px;
+  outline: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+
+.searchBarSubmit {
+  --size: 2.5rem;
+  position: absolute;
+  right: 0.01rem;
+  cursor: pointer;
+  background: #a664e3;
+  border-radius: 50%;
+  width: var(--size);
+  height: var(--size);
+  border: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+
+.searchBar:focus {
+  outline: 0;
+}
+
+.fontIcon {
+  color: white;
+}

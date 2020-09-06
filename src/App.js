@@ -1,28 +1,39 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Logo from "./components/logo/Logo";
 import Topbar from "./components/topbar/Topbar";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import Stats from "./components/stats/Stats";
-import Calendar from "./components/calendar/Calendar";
+import Schedule from "./components/schedule/Schedule";
 import Webinars from "./components/webinars/Webinars";
-import "./App.css";
+import PageNotFound from "./components/error/Error";
 
 const App = () => {
   return (
-    <Router>
-      <div className="App grid-container">
+    <div className="App grid-container">
+      <Router>
         <Logo />
         <Topbar />
         <Navbar />
-        <Route path="/" exact component={Webinars} />
-        <Route path="/stats" component={Stats} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/calendar" component={Sidebar} />
-        <Route path="/webinars" component={Webinars} />
-      </div>
-    </Router>
+
+        <Switch>
+          <Route path="/" exact={true} component={Schedule} />
+          <Route path="/webinars" exact={true} component={Webinars} />
+          <Route path="/stats" exact={true} component={Stats} />
+        </Switch>
+        <Route path="/schedule" component={Sidebar} />
+        <Route path="/schedule" component={Schedule} />
+        <Redirect from="*" to="/404" />
+        <Route path="/404" component={PageNotFound} />
+      </Router>
+    </div>
   );
 };
 
