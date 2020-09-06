@@ -16,7 +16,8 @@ const Search = (props) => {
         <button className={styles.searchBarSubmit}>
           <FontAwesomeIcon
             icon={faSearch}
-            aria-label="submit search"
+            className={styles.fontIcon}
+            className={styles.fontIcon}
             size="lg"
           />
         </button>
