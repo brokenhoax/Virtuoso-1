@@ -8,11 +8,11 @@ function CardItem(props) {
       <li className={styles.cards__list__items}>
         <Link className={props.cards__items__link} to={props.path}>
           <figure
-            className={props.cards__item__picWrap}
+            className={styles.cards__item__picWrap}
             data-category={props.label}
           >
             <img
-              className={props.cards__item__img}
+              className={styles.cards__item__img}
               alt="Webinar Image"
               src={props.src}
             />
