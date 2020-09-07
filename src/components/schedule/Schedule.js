@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Schedule.css";
 import { Calendar, Badge } from "antd";
+import { Row, Col } from "antd";
 
 //============= Calendar FUNCTIONS =============//
 // Day/Month View
@@ -51,12 +52,14 @@ function monthCellRender(value) {
 // Calendar Class Component
 const Schedule = () => {
   return (
-    <div className="main">
-      <Calendar
-        dateCellRender={dateCellRender}
-        monthCellRender={monthCellRender}
-      />
-    </div>
+    <Row>
+      <div className="schedule">
+        <Calendar
+          dateCellRender={dateCellRender}
+          monthCellRender={monthCellRender}
+        />
+      </div>
+    </Row>
   );
 };
 

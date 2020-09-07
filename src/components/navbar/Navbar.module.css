@@ -2,6 +2,14 @@
   grid-area: navi;
   display: grid;
   background-color: #5f82d9;
+  align-content: start;
+}
+
+.navWrapper {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  padding-top: 4rem;
 }
 
 .navi {

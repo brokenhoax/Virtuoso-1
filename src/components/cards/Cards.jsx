@@ -1,74 +1,80 @@
-import React from "react";
+// import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
 import styles from "./Cards.module.css";
 import CardItem from "../cardItem/CardItem";
 
-const Cards = () => {
-  return (
-    <div className={styles.cards}>
-      <h1 className={styles.cards__title}>Upcoming Webinars</h1>
-      <div className={styles.cards__container}>
-        <div className={styles.cards__wrapper}>
-          <ul className={styles.cards__list}>
-            <CardItem
-              src={"assets/images/javascript.png"}
-              title="Learn JavaScript!"
-              skill="Intermediate"
-              date="10/31/2020"
-              time="12:00 EST"
-              duration="45 minutes"
-              topic="JavaScript"
-              label="JavaScript"
-              path="/webinars"
-            />
-            <CardItem
-              src={"assets/images/heroku.png"}
-              title="Learn Heroku!"
-              skill="Intermediate"
-              date="10/31/2020"
-              time="12:00 EST"
-              duration="45 minutes"
-              topic="Heroku"
-              label="Heroku"
-              path="/webinars"
-            />
-            <CardItem
-              src={"assets/images/html.png"}
-              title="Learn HTML!"
-              skill="Beginner"
-              date="10/31/2020"
-              time="12:00 EST"
-              duration="45 minutes"
-              label="HTML"
-              topic="HTML"
-              path="/webinars"
-            />
-            <CardItem
-              src={"assets/images/react.jpg"}
-              title="Learn React"
-              skill="Advanced"
-              date="10/31/2020"
-              time="12:00 EST"
-              duration="45 minutes"
-              topic="React"
-              label="React"
-              path="/webinars"
-            />
-            <CardItem
-              src={"assets/images/mongo.png"}
-              title="Learn MongoDb"
-              skill="Beginner"
-              date="10/31/2020"
-              time="12:00 EST"
-              duration="45 minutes"
-              topic="MongoDb"
-              label="MongoDb"
-              path="/webinars"
-            />
-          </ul>
+class Cards extends Component {
+  state = {
+    webinars: [],
+  };
+
+  componentDidMount() {
+    axios.get("http://localhost:3000/webinar/get/all").then((res) => {
+      const webinars = res.data.data;
+      console.log(webinars);
+      this.setState({ webinars });
+    });
+  }
+
+  // Logic to Change Image
+  getImage(photo) {
+    console.log("PHOTO: " + photo);
+    if (photo === "JavaScript") {
+      return (photo = "assets/images/javascript.png");
+    }
+
+    if (photo === "React") {
+      return (photo = "assets/images/react.jpg");
+    }
+
+    if (photo === "Heroku") {
+      return (photo = "assets/images/heroku.png");
+    }
+
+    if (photo === "MongoDb") {
+      return (photo = "assets/images/mongo.png");
+    }
+
+    if (photo === "HTML") {
+      return (photo = "assets/images/html.png");
+    }
+  }
+
+  render() {
+    return (
+      <div className={styles.cards}>
+        <h1 className={styles.cards__title}>Upcoming Webinars</h1>
+        <div className={styles.cards__container}>
+          <div className={styles.cards__wrapper}>
+            <ul className={styles.cards__list}>
+              {this.state.webinars.map((webinar) => (
+                <CardItem
+                  key={webinar._id}
+                  src={this.getImage(webinar.mainTopic)}
+                  title={webinar.title}
+                  skill={"Level: " + webinar.skillLevel}
+                  date={
+                    "Date: " +
+                    webinar.date.month +
+                    "-" +
+                    webinar.date.day +
+                    "-" +
+                    webinar.date.year
+                  }
+                  time={"Time: " + webinar.date.startTime}
+                  duration={"Duration: " + webinar.date.duration}
+                  topic={"Topic: " + webinar.mainTopic}
+                  label="JavaScript"
+                  path="/webinars"
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Cards;

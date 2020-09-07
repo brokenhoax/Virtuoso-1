@@ -13,6 +13,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Stats from "./components/stats/Stats";
 import Schedule from "./components/schedule/Schedule";
 import Webinars from "./components/webinars/Webinars";
+import Profile from "./components/profile/Profile";
 import PageNotFound from "./components/error/Error";
 
 const App = () => {
@@ -22,9 +23,9 @@ const App = () => {
         <Logo />
         <Topbar />
         <Navbar />
-
         <Switch>
           <Route path="/" exact={true} component={Schedule} />
+          <Route path="/profile" exact={true} component={Profile} />
           <Route path="/webinars" exact={true} component={Webinars} />
           <Route path="/stats" exact={true} component={Stats} />
         </Switch>
