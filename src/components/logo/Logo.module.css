@@ -1,10 +1,24 @@
+.logoContainer {
+  display: grid;
+  position: relative;
+
+  padding: 0;
+  margin: 0;
+}
+
 .logo {
   grid-area: logo;
-  display: flex;
+  position: absolute;
+  display: grid;
+  justify-content: center;
+  align-content: stretch;
   background-color: #a664e3;
   font-family: "permanent", cursive;
-  justify-content: center;
-  align-items: center;
-  font-size: 5rem;
+  font-size: 3rem;
   color: #e4e1ec;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }

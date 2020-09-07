@@ -7,6 +7,7 @@
 
 .chartContainer {
   display: grid;
+  grid-area: main;
   position: relative;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -103,4 +104,9 @@
   width: 90%;
   height: 30%;
   top: 33%;
+}
+
+.main {
+  grid-area: main;
+  background-color: #f2f4f8;
 }
