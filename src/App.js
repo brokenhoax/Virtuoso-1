@@ -9,7 +9,6 @@ import {
 import Logo from "./components/logo/Logo";
 import Topbar from "./components/topbar/Topbar";
 import Navbar from "./components/navbar/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
 import Home from "./components/home/Home";
 import Stats from "./components/stats/Stats";
 import Schedule from "./components/schedule/Schedule";

@@ -17,7 +17,6 @@ const Search = (props) => {
           <FontAwesomeIcon
             icon={faSearch}
             className={styles.fontIcon}
-            className={styles.fontIcon}
             size="lg"
           />
         </button>
