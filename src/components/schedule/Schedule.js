@@ -1,7 +1,8 @@
 import React from "react";
 import "./Schedule.css";
 import { Calendar, Badge } from "antd";
-import { Row, Col } from "antd";
+import Sidebar from "./../sidebar/Sidebar";
+import { BrowserRouter as Router } from "react-router-dom";
 
 //============= Calendar FUNCTIONS =============//
 // Day/Month View
@@ -52,14 +53,13 @@ function monthCellRender(value) {
 // Calendar Class Component
 const Schedule = () => {
   return (
-    <Row>
-      <div className="schedule">
-        <Calendar
-          dateCellRender={dateCellRender}
-          monthCellRender={monthCellRender}
-        />
-      </div>
-    </Row>
+    <Router>
+      <Calendar
+        dateCellRender={dateCellRender}
+        monthCellRender={monthCellRender}
+      />
+      <Sidebar />
+    </Router>
   );
 };
 

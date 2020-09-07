@@ -1,5 +1,23 @@
 @import "~antd/dist/antd.css";
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 80px 7fr 1fr;
+  grid-template-rows: 80px 10.5fr;
+  grid-template-areas:
+    "logo   topbar  topbar"
+    "navi   main    sidebar";
+  height: 100vh;
+}
+
+.schedule {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
 .ant-picker-calendar-full {
   /* font-family: "permanent", cursive; */
   background-color: #a664e3;

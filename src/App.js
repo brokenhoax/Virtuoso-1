@@ -10,6 +10,7 @@ import Logo from "./components/logo/Logo";
 import Topbar from "./components/topbar/Topbar";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
+import Home from "./components/home/Home";
 import Stats from "./components/stats/Stats";
 import Schedule from "./components/schedule/Schedule";
 import Webinars from "./components/webinars/Webinars";
@@ -24,15 +25,14 @@ const App = () => {
         <Topbar />
         <Navbar />
         <Switch>
-          <Route path="/" exact={true} component={Schedule} />
+          <Route path="/" exact={true} component={Home} />
           <Route path="/profile" exact={true} component={Profile} />
           <Route path="/webinars" exact={true} component={Webinars} />
           <Route path="/stats" exact={true} component={Stats} />
+          <Route path="/schedule" exact={true} component={Schedule} />
+          <Route path="/404" component={PageNotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
-        <Route path="/schedule" component={Sidebar} />
-        <Route path="/schedule" component={Schedule} />
-        <Redirect from="*" to="/404" />
-        <Route path="/404" component={PageNotFound} />
       </Router>
     </div>
   );

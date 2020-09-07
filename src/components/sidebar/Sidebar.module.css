@@ -1,18 +1,7 @@
-.main {
-  grid-area: main;
-  background-color: #f2f4f8;
-}
-
-.sidebar {
-  grid-area: sidebar;
-  background-color: #e5defc;
-}
-
 /* ========= GRID ========== */
 
 .sideContainer {
   display: grid;
-  grid-area: sidebar;
   position: relative;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
