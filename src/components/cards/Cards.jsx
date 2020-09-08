@@ -5,16 +5,8 @@ import styles from "./Cards.module.css";
 import CardItem from "../cardItem/CardItem";
 
 class Cards extends Component {
-  state = {
-    webinars: [],
-  };
-
-  componentDidMount() {
-    axios.get("http://localhost:3000/webinar/get/all").then((res) => {
-      const webinars = res.data.data;
-      console.log(webinars);
-      this.setState({ webinars });
-    });
+  constructor(props) {
+    super(props);
   }
 
   // Logic to Change Image
@@ -48,27 +40,31 @@ class Cards extends Component {
         <div className={styles.cards__container}>
           <div className={styles.cards__wrapper}>
             <ul className={styles.cards__list}>
-              {this.state.webinars.map((webinar) => (
-                <CardItem
-                  key={webinar._id}
-                  src={this.getImage(webinar.mainTopic)}
-                  title={webinar.title}
-                  skill={"Level: " + webinar.skillLevel}
-                  date={
-                    "Date: " +
-                    webinar.date.month +
-                    "-" +
-                    webinar.date.day +
-                    "-" +
-                    webinar.date.year
-                  }
-                  time={"Time: " + webinar.date.startTime}
-                  duration={"Duration: " + webinar.date.duration}
-                  topic={"Topic: " + webinar.mainTopic}
-                  label="JavaScript"
-                  path="/webinars"
-                />
-              ))}
+              {this.props.webinars
+                .filter((webinar) =>
+                  webinar.mainTopic.includes(this.props.search)
+                )
+                .map((webinar) => (
+                  <CardItem
+                    key={webinar._id}
+                    src={this.getImage(webinar.mainTopic)}
+                    title={webinar.title}
+                    skill={"Level: " + webinar.skillLevel}
+                    date={
+                      "Date: " +
+                      webinar.date.month +
+                      "-" +
+                      webinar.date.day +
+                      "-" +
+                      webinar.date.year
+                    }
+                    time={"Time: " + webinar.date.startTime}
+                    duration={"Duration: " + webinar.date.duration}
+                    topic={"Topic: " + webinar.mainTopic}
+                    label="JavaScript"
+                    path="/webinars"
+                  />
+                ))}
             </ul>
           </div>
         </div>

@@ -18,19 +18,24 @@ import PageNotFound from "./components/error/Error";
 
 const App = () => {
   return (
-    <div className="App grid-container">
+    <div className="grid-container">
       <Router>
         <Logo />
         <Topbar />
         <Navbar />
         <Switch>
-          <Route path="/" exact={true} component={Home} />
+          <Route path="/home" exact={true} component={Home} />
           <Route path="/profile" exact={true} component={Profile} />
-          <Route path="/webinars" exact={true} component={Webinars} />
+          <Route
+            path="/webinars"
+            exact={true}
+            component={Webinars}
+            className="webinars"
+          />
           <Route path="/stats" exact={true} component={Stats} />
           <Route path="/schedule" exact={true} component={Schedule} />
           <Route path="/404" component={PageNotFound} />
-          <Redirect from="*" to="/404" />
+          <Redirect from="/" to="/404" />
         </Switch>
       </Router>
     </div>
