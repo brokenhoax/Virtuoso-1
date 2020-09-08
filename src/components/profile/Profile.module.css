@@ -1,8 +1,8 @@
 .testy {
+  grid-area: main;
   width: 500px;
   height: 500px;
   font: white;
-  background-color: black;
   list-style-type: none;
 }
 

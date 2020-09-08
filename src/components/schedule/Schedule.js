@@ -1,7 +1,7 @@
 import React from "react";
 import "./Schedule.css";
 import { Calendar, Badge } from "antd";
-import Sidebar from "./../sidebar/Sidebar";
+import Sidebar from "../sidebar/Sidebar";
 import { BrowserRouter as Router } from "react-router-dom";
 
 //============= Calendar FUNCTIONS =============//

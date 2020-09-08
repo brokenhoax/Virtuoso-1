@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./Profile.css";
+import styles from "./Profile.module.css";
 
 class Profile extends Component {
   state = {
@@ -17,8 +17,8 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="main">
-        <ul className="classy">
+      <div className={styles.testy}>
+        <ul className={styles.classy}>
           {this.state.persons.map((person) => (
             <li className="userCard" key={person._id}>
               <div>{"Name: " + person.firstname + " " + person.lastname}</div>
