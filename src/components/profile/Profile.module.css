@@ -1,0 +1,15 @@
+.testy {
+  grid-area: main;
+  width: 500px;
+  height: 500px;
+  font: white;
+  list-style-type: none;
+}
+
+.classy {
+  list-style-type: none;
+}
+
+.userCard {
+  margin: 50px;
+}

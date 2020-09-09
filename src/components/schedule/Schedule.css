@@ -1,8 +1,16 @@
 @import "~antd/dist/antd.css";
 
+.schedule {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
 .ant-picker-calendar-full {
   /* font-family: "permanent", cursive; */
-  background-color: #a664e3;
+  background-color: white;
 }
 
 .ant-picker-calendar-header {

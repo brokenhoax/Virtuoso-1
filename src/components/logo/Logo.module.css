@@ -1,10 +1,12 @@
 .logo {
+  display: grid;
   grid-area: logo;
-  display: flex;
+  justify-items: center;
   background-color: #a664e3;
   font-family: "permanent", cursive;
-  justify-content: center;
-  align-items: center;
-  font-size: 5rem;
+  font-size: 3rem;
   color: #e4e1ec;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }

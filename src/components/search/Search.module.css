@@ -4,22 +4,25 @@
   --clr-bg: #a664e3;
 }
 
-.content {
-  background: white;
+.search {
   display: grid;
-  position: relative;
-  border-radius: 20px;
-  top: 15px;
-  right: 1rem;
-  float: right;
-  box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+  position: sticky;
+  grid-area: topbar;
+  justify-content: end;
+  align-content: center;
+  background-color: #293241;
+  z-index: 2;
+  top: 0;
+  margin-right: 1rem;
 }
 
 .searchBar {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-area: search;
+  justify-content: end;
   min-width: 200px;
   border: 2px var(--clr-bg);
+  z-index: 10;
 }
 
 .searchBarInput {
@@ -31,9 +34,11 @@
 }
 
 .searchBarSubmit {
+  display: grid;
   --size: 2.3rem;
   position: absolute;
-  right: 0rem;
+  align-items: center;
+  justify-self: end;
   cursor: pointer;
   background: #a664e3;
   width: var(--size);
@@ -49,5 +54,6 @@
 }
 
 .fontIcon {
+  display: grid;
   color: white;
 }

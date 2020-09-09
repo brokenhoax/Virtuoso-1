@@ -4,11 +4,7 @@ import Search from "../search/Search";
 
 class Topbar extends Component {
   render() {
-    return (
-      <div className={styles.topbar}>
-        <Search />
-      </div>
-    );
+    return <div className={styles.topbar}></div>;
   }
 }
 
