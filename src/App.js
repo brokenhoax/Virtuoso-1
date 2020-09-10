@@ -24,6 +24,7 @@ const App = () => {
         <Topbar />
         <Navbar />
         <Switch>
+          <Route path="/" exact={true} component={Home} />
           <Route path="/home" exact={true} component={Home} />
           <Route path="/profile" exact={true} component={Profile} />
           <Route
@@ -35,7 +36,7 @@ const App = () => {
           <Route path="/stats" exact={true} component={Stats} />
           <Route path="/schedule" exact={true} component={Schedule} />
           <Route path="/404" component={PageNotFound} />
-          <Redirect from="/" to="/404" />
+          <Redirect from="*" to="/404" />
         </Switch>
       </Router>
     </div>
