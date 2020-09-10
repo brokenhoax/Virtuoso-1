@@ -3,10 +3,10 @@ import { BrowserRouter as Navlink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { faChartPie } from "@fortawesome/free-solid-svg-icons";
+import { faTv } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Navbar.module.css";
 
 class Navbar extends Component {
@@ -27,7 +27,7 @@ class Navbar extends Component {
             <div className={styles.navContainer}>
               <FontAwesomeIcon
                 className={styles.navLink}
-                icon={faUsers}
+                icon={faTv}
                 size="2x"
               />
             </div>
@@ -46,6 +46,15 @@ class Navbar extends Component {
               <FontAwesomeIcon
                 className={styles.navLink}
                 icon={faVideo}
+                size="2x"
+              />
+            </div>
+          </Link>{" "}
+          <Link className={styles.navLink} to="/favorite">
+            <div className={styles.navContainer}>
+              <FontAwesomeIcon
+                className={styles.navLink}
+                icon={faHeart}
                 size="2x"
               />
             </div>
