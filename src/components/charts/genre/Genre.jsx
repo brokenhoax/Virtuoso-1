@@ -5,13 +5,6 @@ import React, { Component } from "react";
 var Chart = require("chart.js");
 
 class Genre extends Component {
-  // Is this legacy code (i.e., not needed anymore?)
-  // constructor(props) {
-  //     super(props);
-  //     console.log('App - Constructor');
-  //     // this.state = this.props.something;
-  //   }
-
   componentDidMount() {
     this.circleChart();
   }
@@ -22,10 +15,12 @@ class Genre extends Component {
     var testChart = new Chart(ctx, {
       type: "doughnut",
       data: {
+        // Now you just have to map the Labels...
         labels: ["JavaScript", "Python", "Ruby", "CSS", "React", "Swift"],
         datasets: [
           {
             label: "# of Votes",
+            // And the Data...
             data: [12, 19, 3, 7, 2, 3],
             backgroundColor: [
               "rgba(62, 71, 84)",

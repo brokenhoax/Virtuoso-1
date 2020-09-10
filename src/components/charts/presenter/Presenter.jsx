@@ -55,8 +55,8 @@ class Presenter extends Component {
       options: {
         responsive: true,
         legend: {
-          display: false,
-          position: "top",
+          position: this.props.position,
+          display: this.props.display,
         },
         gridLines: {
           display: false,
@@ -76,7 +76,7 @@ class Presenter extends Component {
           xAxes: [
             {
               ticks: {
-                display: true,
+                display: this.props.displayTicks,
               },
               gridLines: {
                 display: false,
