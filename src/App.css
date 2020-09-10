@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   position: relative;
-  grid-template-columns: 80px 7fr auto;
+  grid-template-columns: 80px 1fr auto;
   grid-template-rows: 80px auto;
   grid-template-areas:
     "logo   topbar  topbar"
