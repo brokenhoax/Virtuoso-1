@@ -18,6 +18,34 @@ import events from "./event-utils";
 class Schedule extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      webinarArray: [],
+      title: "",
+      date: "",
+      time: "",
+    };
+  }
+
+  async componentDidMount() {
+    await this.webinarArray();
+    // await this.title();
+    // await this.date();
+    // await this.time();
+  }
+
+  async webinarArray() {
+    await axios
+      .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
+      .then((res) => {
+        const array = res.data.data;
+        const webinarArray = [];
+        let i = "";
+        for (i = 0; i < array.length; i++) {
+          webinarArray.push(array[i].title);
+        }
+        console.log("webArray: " + webinarArray);
+        // this.setState({ webinarArray });
+      });
   }
 
   render() {
@@ -34,7 +62,7 @@ class Schedule extends Component {
             // Determines if week numbers should be displayed on the calendar.
             weekNumbers={true}
             // the number of events will be limited to the height of the day cell.The rest will show up in a popover.
-            dayMaxEvents={true}
+            dayMaxEvents={0}
             // Loads Calendar Theme.
             themeSystem="bootstrap"
             // initial view when the calendar loads.
