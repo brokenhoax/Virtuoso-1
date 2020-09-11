@@ -1,51 +1,51 @@
-@import "~antd/dist/antd.css";
-
-.schedule {
-  grid-area: main;
+html,
+body,
+body > div {
+  /* the react root */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: black;
 }
 
-.sidebar {
-  grid-area: sidebar;
+h2 {
+  margin: 0;
+  font-size: 16px;
+  /* color: #a664e3; */
 }
 
-.ant-picker-calendar-full {
-  /* font-family: "permanent", cursive; */
-  background-color: white;
+ul {
+  margin: 0;
+  padding: 0 0 0 1.5em;
 }
 
-.ant-picker-calendar-header {
-  padding-right: 1rem;
+li {
+  margin: 1.5em 0;
+  padding: 0;
 }
 
-.ant-picker-cell {
-  height: 7.95rem;
+b {
+  /* used for event dates/times */
+  margin-right: 3px;
 }
 
-.events {
-  list-style: none;
-  margin: 0rem;
-  padding: 0rem;
+.demo-app {
+  display: flex;
+  min-height: 100%;
+  font-size: 14px;
 }
 
-.events .ant-badge-status {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  text-overflow: ellipsis;
-  font-size: 1rem;
+.demo-app-sidebar-section {
+  padding: 2em;
 }
 
-.notes-month {
-  text-align: center;
-  font-size: 1rem;
+.demo-app-main {
+  flex-grow: 1;
+  padding: 3em;
 }
 
-.notes-month section {
-  font-size: 1rem;
+.fc {
+  /* the calendar root */
+  /* max-width: 1100px;
+  margin: 0 auto; */
 }
-
-/* .boom {
-  display: grid;
-  justify-items: center;
-  align-content: stetch;
-} */
