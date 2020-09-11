@@ -1,6 +1,5 @@
 // import React from "react";
 import React, { Component } from "react";
-import axios from "axios";
 import styles from "./Cards.module.css";
 import CardItem from "../cardItem/CardItem";
 
