@@ -12,9 +12,6 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 
-import { INITIAL_EVENTS } from "./event-utils";
-// import events from "./event-utils";
-
 class Schedule extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +33,7 @@ class Schedule extends Component {
         const eventsObj = [];
         let i = "";
         for (i = 0; i < array.length; i++) {
-          eventsObj.push(array[i].title);
+          eventsObj.push(array[i].date.event);
         }
         console.log("GET-Objects: " + eventsObj);
         this.setState({ eventsObj });
@@ -70,13 +67,8 @@ class Schedule extends Component {
             }}
             //Installed Calendar Plugins.
             plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
-            initialEvents={INITIAL_EVENTS}
-
-            // or, use `events` setting to fetch from a feed
-            // events={this.state.eventsObj}
-
-            // or this to fecth directly from the json...not sure how they do it but on the demo its connected like this...
-            // events= 'https://fullcalendar.io/demo-events.json'
+            //`events` fetch data from JSON feed
+            events={this.state.eventsObj}
           />
         </div>
         <Sidebar />
