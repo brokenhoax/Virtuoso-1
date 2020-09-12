@@ -19,34 +19,49 @@ class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      webinarArray: [],
-      title: "",
-      date: "",
-      time: "",
+      titleArray: [],
+      // dateArray: [],
+      startTimeArray: [],
+      endTimeArray: [],
     };
   }
 
   async componentDidMount() {
     await this.webinarArray();
-    // await this.title();
-    // await this.date();
-    // await this.time();
+    // await this.titleArray();
+    // await this.dateArray();
+    // await this.startTimeArray();
+    // await this.endTimeArray();
   }
-
+  // Creates Array of Webinar Titles,Start/Endtime,Date
   async webinarArray() {
     await axios
       .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
       .then((res) => {
         const array = res.data.data;
-        const webinarArray = [];
+        const titleArray = [];
+        const startTimeArray = [];
+        const endTimeArray = [];
         let i = "";
         for (i = 0; i < array.length; i++) {
-          webinarArray.push(array[i].title);
+          titleArray.push(array[i].title);
+          startTimeArray.push(array[i].date.startTime);
+          endTimeArray.push(array[i].date.endTime);
         }
-        console.log("webArray: " + webinarArray);
-        // this.setState({ webinarArray });
+        console.log("webArrayTitles: " + titleArray);
+        console.log("webArrayStartTime: " + startTimeArray);
+        console.log("webArrayEndTime: " + endTimeArray);
+        this.setState({ titleArray, startTimeArray, endTimeArray });
       });
   }
+
+  // titleArray() {
+  //   let newArray = this.state.webinarArray;
+  //   console.log("titleArrayArray: " + newArray);
+  //   let titleArray = newArray.length;
+  //   console.log("titleArrayArray: " + titleArray);
+  //   this.setState({ titleArray });
+  // }
 
   render() {
     return (
