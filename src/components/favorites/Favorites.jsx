@@ -1,30 +1,34 @@
 import React, { Component } from "react";
 import Cards from "../cards/Cards";
-import styles from "./Webinars.module.css";
+import styles from "./Favorites.module.css";
 import searchStyle from "../search/Search.module.css";
 import Search from "../search/Search";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
 
-class Webinars extends Component {
+class Favorites extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userID: "5f5d0a933ff9981734ab95a3",
       webinars: [],
       search: [],
-      header: "Upcoming Webinars",
+      header: "Favorites",
     };
   }
 
   async componentDidMount() {
-    await axios
-      .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
-      .then((res) => {
-        const webinars = res.data.data;
-        console.log(webinars);
-        this.setState({ webinars });
-      });
+    let FavoriteURL = `https://salty-fortress-9010-virt-b.herokuapp.com/user/${this.state.userID}/webinar/favorite`;
+
+    await axios.get(FavoriteURL).then((res) => {
+      const webinars = res.data.data.favorite;
+      console.log(webinars);
+      this.setState({ webinars });
+    });
   }
+
+  // First, we need get users favorites webinars
+  // Then we need retreive those webinars from webinar database
 
   searchChanged = (event) => {
     console.log("Hi! From: onChange", event.target.value);
@@ -41,6 +45,7 @@ class Webinars extends Component {
           webinars={this.state.webinars}
           search={this.state.search}
           header={this.state.header}
+          favorites={this.state.favorites}
         />
         <Search
           className={searchStyle.test}
@@ -52,4 +57,4 @@ class Webinars extends Component {
   }
 }
 
-export default Webinars;
+export default Favorites;

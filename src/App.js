@@ -9,9 +9,9 @@ import {
 import Logo from "./components/logo/Logo";
 import Topbar from "./components/topbar/Topbar";
 import Navbar from "./components/navbar/Navbar";
-import Home from "./components/home/Home";
 import Stats from "./components/stats/Stats";
 import Schedule from "./components/schedule/Schedule";
+import Favorites from "./components/favorites/Favorites";
 import Webinars from "./components/webinars/Webinars";
 import Profile from "./components/profile/Profile";
 import PageNotFound from "./components/error/Error";
@@ -24,13 +24,19 @@ const App = () => {
         <Topbar />
         <Navbar />
         <Switch>
-          <Route path="/" exact={true} component={Home} />
-          <Route path="/home" exact={true} component={Home} />
+          <Route path="/" exact={true} component={Webinars} />
+          <Route path="/home" exact={true} component={Webinars} />
           <Route path="/profile" exact={true} component={Profile} />
           <Route
             path="/webinars"
             exact={true}
             component={Webinars}
+            className="webinars"
+          />
+          <Route
+            path="/favorites"
+            exact={true}
+            component={Favorites}
             className="webinars"
           />
           <Route path="/stats" exact={true} component={Stats} />

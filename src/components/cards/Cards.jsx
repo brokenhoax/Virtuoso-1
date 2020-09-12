@@ -4,38 +4,38 @@ import styles from "./Cards.module.css";
 import CardItem from "../cardItem/CardItem";
 
 class Cards extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   // Logic to Change Image
   getImage(photo) {
     console.log("PHOTO: " + photo);
     if (photo === "JavaScript") {
-      return (photo = "assets/images/javascript.png");
+      return (photo = "assets/images/JavaScript.png");
     }
 
     if (photo === "React") {
-      return (photo = "assets/images/react.jpg");
+      return (photo = "assets/images/React.jpg");
     }
 
-    if (photo === "Heroku") {
-      return (photo = "assets/images/heroku.png");
+    if (photo === "Python") {
+      return (photo = "assets/images/Python.jpg");
     }
 
-    if (photo === "MongoDb") {
-      return (photo = "assets/images/mongo.png");
+    if (photo === "MongoDB") {
+      return (photo = "assets/images/MongoDB.png");
     }
 
-    if (photo === "HTML") {
-      return (photo = "assets/images/html.png");
+    if (photo === "Node JS") {
+      return (photo = "assets/images/Node JS.png");
+    }
+
+    if (photo === "Angular") {
+      return (photo = "assets/images/Angular.jpg");
     }
   }
 
   render() {
     return (
       <div className={styles.cards}>
-        <h1 className={styles.cards__title}>Upcoming Webinars</h1>
+        <h1 className={styles.cards__title}>{this.props.header}</h1>
         <div className={styles.cards__container}>
           <div className={styles.cards__wrapper}>
             <ul className={styles.cards__list}>

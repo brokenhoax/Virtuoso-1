@@ -13,7 +13,7 @@ function CardItem(props) {
           >
             <img
               className={styles.cards__item__img}
-              alt="Webinar Image"
+              alt="Webinar"
               src={props.src}
             />
           </figure>

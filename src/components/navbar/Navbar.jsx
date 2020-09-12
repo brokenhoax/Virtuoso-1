@@ -50,7 +50,7 @@ class Navbar extends Component {
               />
             </div>
           </Link>{" "}
-          <Link className={styles.navLink} to="/favorite">
+          <Link className={styles.navLink} to="/favorites">
             <div className={styles.navContainer}>
               <FontAwesomeIcon
                 className={styles.navLink}

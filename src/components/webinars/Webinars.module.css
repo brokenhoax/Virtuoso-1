@@ -3,3 +3,9 @@
   font-size: 8rem;
   overflow: auto;
 }
+
+.webinars__title {
+  width: 100%;
+  font-size: 4rem;
+  text-align: center;
+}
