@@ -13,55 +13,35 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 
 import { INITIAL_EVENTS } from "./event-utils";
-import events from "./event-utils";
+// import events from "./event-utils";
 
 class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      titleArray: [],
-      // dateArray: [],
-      startTimeArray: [],
-      endTimeArray: [],
+      eventsObj: [],
     };
   }
 
   async componentDidMount() {
     await this.webinarArray();
-    // await this.titleArray();
-    // await this.dateArray();
-    // await this.startTimeArray();
-    // await this.endTimeArray();
   }
-  // Creates Array of Webinar Titles,Start/Endtime,Date
+
+  // Creates Arrays of Webinar Titles,Start/Endtimes,Dates
   async webinarArray() {
     await axios
       .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
       .then((res) => {
         const array = res.data.data;
-        const titleArray = [];
-        const startTimeArray = [];
-        const endTimeArray = [];
+        const eventsObj = [];
         let i = "";
         for (i = 0; i < array.length; i++) {
-          titleArray.push(array[i].title);
-          startTimeArray.push(array[i].date.startTime);
-          endTimeArray.push(array[i].date.endTime);
+          eventsObj.push(array[i].title);
         }
-        console.log("webArrayTitles: " + titleArray);
-        console.log("webArrayStartTime: " + startTimeArray);
-        console.log("webArrayEndTime: " + endTimeArray);
-        this.setState({ titleArray, startTimeArray, endTimeArray });
+        console.log("GET-Objects: " + eventsObj);
+        this.setState({ eventsObj });
       });
   }
-
-  // titleArray() {
-  //   let newArray = this.state.webinarArray;
-  //   console.log("titleArrayArray: " + newArray);
-  //   let titleArray = newArray.length;
-  //   console.log("titleArrayArray: " + titleArray);
-  //   this.setState({ titleArray });
-  // }
 
   render() {
     return (
@@ -91,8 +71,12 @@ class Schedule extends Component {
             //Installed Calendar Plugins.
             plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
             initialEvents={INITIAL_EVENTS}
-            // alternatively, use `events` setting to fetch from a feed
-            // events={events}
+
+            // or, use `events` setting to fetch from a feed
+            // events={this.state.eventsObj}
+
+            // or this to fecth directly from the json...not sure how they do it but on the demo its connected like this...
+            // events= 'https://fullcalendar.io/demo-events.json'
           />
         </div>
         <Sidebar />
