@@ -32,16 +32,18 @@ class Stats extends Component {
   }
 
   async webinarArray() {
-    await axios.get("http://localhost:3000/webinar/get/all").then((res) => {
-      const array = res.data.data;
-      const webinarArray = [];
-      let i = "";
-      for (i = 0; i < array.length; i++) {
-        webinarArray.push(array[i].date.duration);
-      }
-      console.log("webArray: " + webinarArray);
-      this.setState({ webinarArray });
-    });
+    await axios
+      .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
+      .then((res) => {
+        const array = res.data.data;
+        const webinarArray = [];
+        let i = "";
+        for (i = 0; i < array.length; i++) {
+          webinarArray.push(array[i].date.duration);
+        }
+        console.log("webArray: " + webinarArray);
+        this.setState({ webinarArray });
+      });
   }
 
   sumHours() {

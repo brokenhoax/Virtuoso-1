@@ -16,11 +16,13 @@ class Webinars extends Component {
   }
 
   async componentDidMount() {
-    await axios.get("http://localhost:3000/webinar/get/all").then((res) => {
-      const webinars = res.data.data;
-      console.log(webinars);
-      this.setState({ webinars });
-    });
+    await axios
+      .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
+      .then((res) => {
+        const webinars = res.data.data;
+        console.log(webinars);
+        this.setState({ webinars });
+      });
   }
 
   searchChanged = (event) => {
