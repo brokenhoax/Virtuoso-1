@@ -26,16 +26,18 @@ class Sidebar extends Component {
   }
 
   async webinarArray() {
-    await axios.get("http://localhost:3000/webinar/get/all").then((res) => {
-      const totalHours = res.data.data;
-      const webinarArray = [];
-      let i = "";
-      for (i = 0; i < totalHours.length; i++) {
-        webinarArray.push(totalHours[i].date.duration);
-      }
-      console.log("webArray: " + webinarArray);
-      this.setState({ webinarArray, totalHours });
-    });
+    await axios
+      .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
+      .then((res) => {
+        const totalHours = res.data.data;
+        const webinarArray = [];
+        let i = "";
+        for (i = 0; i < totalHours.length; i++) {
+          webinarArray.push(totalHours[i].date.duration);
+        }
+        console.log("webArray: " + webinarArray);
+        this.setState({ webinarArray, totalHours });
+      });
   }
 
   sumHours() {
