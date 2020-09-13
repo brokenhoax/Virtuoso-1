@@ -10,7 +10,7 @@ class Favorites extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userID: "5f5d0a933ff9981734ab95a3",
+      userID: "5f5e902005f606246c981e1d",
       webinars: [],
       search: [],
       header: "Favorites",

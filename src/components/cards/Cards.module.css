@@ -67,3 +67,8 @@
   background-color: #1f98f4;
   box-sizing: border-box;
 }
+
+.favIcon {
+  position: absolute;
+  float: right;
+}
