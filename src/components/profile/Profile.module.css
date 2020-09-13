@@ -1,0 +1,83 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  font: #3e4754;
+  list-style-type: none;
+  background-color: #e4e1ec;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 100%;
+}
+
+.userPic {
+  width: 200px;
+}
+
+.profileHeader {
+  color: #3e4754;
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.profileWrapper {
+  display: grid;
+  justify-items: center;
+  padding: 4rem;
+}
+
+.profileSection {
+  display: flex;
+  padding: 1rem;
+}
+
+.profileKey {
+  color: #005082;
+  padding: 1rem;
+}
+
+.profileValue {
+  color: #3e4754;
+  padding: 1rem;
+}
+
+.userCard {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  font-size: 2rem;
+  color: black;
+
+  line-height: 2;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.update {
+  margin: 1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.signOut {
+  margin: 1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.update:hover {
+  background-color: #ffbd69;
+  color: white;
+  border: none;
+}
+
+.signOut:hover {
+  background-color: #a664e3;
+  color: white;
+  border: none;
+}

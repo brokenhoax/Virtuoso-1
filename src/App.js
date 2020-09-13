@@ -9,29 +9,41 @@ import {
 import Logo from "./components/logo/Logo";
 import Topbar from "./components/topbar/Topbar";
 import Navbar from "./components/navbar/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
 import Stats from "./components/stats/Stats";
 import Schedule from "./components/schedule/Schedule";
+import Favorites from "./components/favorites/Favorites";
 import Webinars from "./components/webinars/Webinars";
+import Profile from "./components/profile/Profile";
 import PageNotFound from "./components/error/Error";
 
 const App = () => {
   return (
-    <div className="App grid-container">
+    <div className="grid-container">
       <Router>
         <Logo />
         <Topbar />
         <Navbar />
-
         <Switch>
-          <Route path="/" exact={true} component={Schedule} />
-          <Route path="/webinars" exact={true} component={Webinars} />
+          <Route path="/" exact={true} component={Webinars} />
+          <Route path="/home" exact={true} component={Webinars} />
+          <Route path="/profile" exact={true} component={Profile} />
+          <Route
+            path="/webinars"
+            exact={true}
+            component={Webinars}
+            className="webinars"
+          />
+          <Route
+            path="/favorites"
+            exact={true}
+            component={Favorites}
+            className="webinars"
+          />
           <Route path="/stats" exact={true} component={Stats} />
+          <Route path="/schedule" exact={true} component={Schedule} />
+          <Route path="/404" component={PageNotFound} />
+          <Redirect from="*" to="/404" />
         </Switch>
-        <Route path="/schedule" component={Sidebar} />
-        <Route path="/schedule" component={Schedule} />
-        <Redirect from="*" to="/404" />
-        <Route path="/404" component={PageNotFound} />
       </Router>
     </div>
   );

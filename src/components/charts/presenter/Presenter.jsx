@@ -1,18 +1,83 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 var Chart = require("chart.js");
 
 class Presenter extends Component {
-  // Is this legacy code (i.e., not needed anymore?)
-  // constructor(props) {
-  //     super(props);
-  //     console.log('App - Constructor');
-  //     // this.state = this.props.something;
-  //   }
-
-  componentDidMount() {
-    this.circleChart();
+  constructor(props) {
+    super(props);
+    this.state = {
+      presenterArray: [],
+      presenterFrequency: {},
+    };
   }
+
+  async componentDidMount() {
+    await this.presenterArray();
+    await this.presenterFrequency();
+    // await this.mapNamesToIDs();
+    await this.showState();
+    await this.circleChart();
+  }
+
+  // Console Logging State
+
+  showState = () => {
+    console.log(this.state);
+  };
+
+  // First, get all Main Topics (Genres)
+  //https://www.tutorialspoint.com/looping-through-and-getting-frequency-of-all-the-elements-in-an-array-javascript
+
+  async presenterArray() {
+    await axios
+      .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
+      .then((res) => {
+        const array = res.data.data;
+        const fullArray = [];
+        let i = "";
+        for (i = 0; i < array.length; i++) {
+          fullArray.push(array[i].hosts);
+        }
+        let presenterArray = new Set(fullArray);
+        console.log("presenterArray: " + presenterArray);
+        this.setState({ presenterArray });
+      });
+  }
+
+  // Then Use For Each to Create Frequency Object
+
+  presenterFrequency = () => {
+    const array = this.state.presenterArray;
+    const presenterFrequency = {};
+    array.forEach((item) => {
+      if (presenterFrequency[item]) {
+        presenterFrequency[item]++;
+      } else {
+        presenterFrequency[item] = 1;
+      }
+      return presenterFrequency;
+    });
+    console.log("WHATH!" + presenterFrequency);
+    this.setState({ presenterFrequency });
+  };
+
+  // INCOMPLETE: Now we need to map those Creator UserIds to the Creators Name...
+
+  // async mapNamesToIDs() {
+  //   let test = Object.keys(this.state.presenterFrequency);
+  //   console.log("Presenter ID: " + test);
+  //   await axios
+  //     .get(
+  //       `https://salty-fortress-9010-virt-b.herokuapp.com/user/get/id/${test}`
+  //     )
+  //     .then((res) => {
+  //       const array = res.data.data;
+  //       const presenterName = "";
+  //       console.log("YooHoo!!!" + array);
+  //       // this.setState({ presenterArray });
+  //     });
+  // }
 
   circleChart = () => {
     var ctx = document.getElementById("chartPresenter").getContext("2d");
@@ -20,43 +85,36 @@ class Presenter extends Component {
     var testChart = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: [
-          "Jody B.",
-          "Mike D.",
-          "Terry G.",
-          "Bobby B.",
-          "Ricky T.",
-          "Susy Q.",
-        ],
+        labels: Object.keys(this.state.presenterFrequency),
         datasets: [
           {
             label: "",
-            data: [12, 19, 3, 5, 7, 3],
+            data: Object.values(this.state.presenterFrequency),
             backgroundColor: [
-              "rgba(62, 71, 84)",
-              "rgba(95, 130, 217)",
+              "rgb(37, 31, 68)",
+              "rgba(0, 80, 130)",
               "rgba(166, 100, 227)",
-              "rgb(190, 175, 254)",
+              "rgba(190, 175, 254)",
               "rgba(153, 102, 255, 0.2)",
               "rgba(255, 159, 64, 0.2)",
             ],
             borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)",
+              "rgba(99, 91, 139)",
+              "rgba(99, 91, 139)",
+              "rgba(99, 91, 139)",
+              "rgba(99, 91, 139)",
+              "rgba(99, 91, 139)",
+              "rgba(99, 91, 139)",
             ],
-            borderWidth: 0,
+            borderWidth: this.props.borderWidth,
           },
         ],
       },
       options: {
         responsive: true,
         legend: {
-          display: false,
-          position: "top",
+          position: this.props.position,
+          display: this.props.display,
         },
         gridLines: {
           display: false,
@@ -66,6 +124,7 @@ class Presenter extends Component {
           yAxes: [
             {
               ticks: {
+                beginAtZero: true,
                 display: false,
               },
               gridLines: {
@@ -76,7 +135,7 @@ class Presenter extends Component {
           xAxes: [
             {
               ticks: {
-                display: true,
+                display: this.props.displayTicks,
               },
               gridLines: {
                 display: false,

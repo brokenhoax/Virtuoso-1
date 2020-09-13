@@ -1,22 +1,26 @@
 import React, { Component } from "react";
+import styles from "./Stats.module.css";
 import CountHours from "../charts/countHours/CountHours";
 import CountWebinars from "../charts/countWebinars/CountWebinars";
+import Timeline from "../charts/timeline/Timeline";
 import Genre from "../charts/genre/Genre";
-import Skill from "../charts/skill/Skill";
 import Presenter from "../charts/presenter/Presenter";
-import styles from "./Sidebar.module.css";
+import Skill from "../charts/skill/Skill";
 import axios from "axios";
 
-class Sidebar extends Component {
+class Stats extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: false,
+      display: true,
+      displayTicks: true,
       position: "right",
       webinarArray: [],
       sumHours: "",
       sumWebinars: "",
-      borderWidth: 0,
+      genreArray: [],
+      topicFrequency: {},
+      borderWidth: 1,
     };
   }
 
@@ -30,14 +34,14 @@ class Sidebar extends Component {
     await axios
       .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
       .then((res) => {
-        const totalHours = res.data.data;
+        const array = res.data.data;
         const webinarArray = [];
         let i = "";
-        for (i = 0; i < totalHours.length; i++) {
-          webinarArray.push(totalHours[i].date.duration);
+        for (i = 0; i < array.length; i++) {
+          webinarArray.push(array[i].date.duration);
         }
         console.log("webArray: " + webinarArray);
-        this.setState({ webinarArray, totalHours });
+        this.setState({ webinarArray });
       });
   }
 
@@ -61,13 +65,27 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className={styles.sideContainer}>
+      <div className={styles.chartContainer}>
         <CountWebinars
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           totalWeb={styles.totalWeb}
           webinars={styles.webinars}
           sumWebinars={this.state.sumWebinars}
+        />
+        <Genre
+          chart={styles.chart}
+          chartHeader={styles.chartHeader}
+          genre={styles.genre}
+          display={this.state.display}
+          position={this.state.position}
+          webinars={this.state.webinarArray}
+          borderWidth={this.state.borderWidth}
+        />
+        <Timeline
+          chart={styles.chart}
+          chartHeader={styles.chartHeader}
+          timeline={styles.timeline}
         />
         <CountHours
           chart={styles.chart}
@@ -76,26 +94,19 @@ class Sidebar extends Component {
           hours={styles.hours}
           sumHours={this.state.sumHours}
         />
-        <Genre
-          chart={styles.chart}
-          chartHeader={styles.chartHeader}
-          genre={styles.genre}
-          display={this.state.display}
-          position={this.state.position}
-          borderWidth={this.state.borderWidth}
-        />
         <Skill
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           skill={styles.skill}
+          display={this.state.display}
+          position={this.state.position}
           borderWidth={this.state.borderWidth}
         />
         <Presenter
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           presenter={styles.presenter}
-          display={this.state.display}
-          position={this.state.position}
+          displayTicks={this.state.displayTicks}
           borderWidth={this.state.borderWidth}
         />
       </div>
@@ -103,4 +114,4 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+export default Stats;

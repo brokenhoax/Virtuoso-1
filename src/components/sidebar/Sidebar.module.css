@@ -1,62 +1,33 @@
-.main {
-  grid-area: main;
-  background-color: #f2f4f8;
-}
-
-.sidebar {
-  grid-area: sidebar;
-  background-color: #e5defc;
-}
-
 /* ========= GRID ========== */
 
 .sideContainer {
-  display: grid;
-  position: relative;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "totalWeb"
-    "totalHours"
-    "genre"
-    "presenter"
-    "skill";
+  display: flex;
+  flex-direction: column;
 }
 
 /* ========= CHARTS ========== */
 
 .chart {
   display: flex;
+  flex-direction: column;
   position: relative;
   background-color: #e4e1ec;
   color: #293241;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 2rem;
 }
 
 .chartHeader {
-  font-size: 1.2rem;
-  padding: 1rem;
+  font-size: 1.5rem;
 }
 
 .hours {
-  font-size: 4rem;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  font-size: 6rem;
 }
 
 .webinars {
-  font-size: 4rem;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  font-size: 6rem;
 }
 
 .totalWeb {
@@ -68,32 +39,16 @@
 }
 
 .presenter {
+  padding-top: 1rem;
   grid-area: presenter;
-  position: absolute;
-  height: 60%;
-  width: 100%;
-  top: 33%;
 }
 
 .genre {
+  padding-top: 1rem;
   grid-area: genre;
-  position: absolute;
-  height: 60%;
-  width: 100%;
-  top: 33%;
 }
 
 .skill {
+  padding-top: 1rem;
   grid-area: skill;
-  position: absolute;
-  height: 60%;
-  top: 33%;
-  overflow: hidden;
-  width: 100%;
-}
-
-.main {
-  grid-area: main;
-  background-color: #f2f4f8;
-  padding: 2px;
 }

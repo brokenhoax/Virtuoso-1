@@ -1,10 +1,13 @@
 .cards {
   margin-top: 3rem;
 }
+
 .cards__title {
   display: grid;
   font-size: 4rem;
   text-align: center;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
 }
 
 .cards__list {
@@ -13,7 +16,7 @@
   flex-wrap: wrap;
   text-decoration: none;
   flex-basis: auto;
-  justify-content: space-evenly;
+  justify-content: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -25,14 +28,13 @@
   box-shadow: 2px 2px 2px 2px gray;
   width: 20rem;
   padding: 10px;
+  background-color: white;
 }
 
 .cards__item__picWrap {
   display: flex;
   position: relative;
   width: 100%;
-  /* width: 300px;
-  height: 60px; */
   padding-top: 67%;
   overflow: hidden;
 }
@@ -64,4 +66,9 @@
   color: #fff;
   background-color: #1f98f4;
   box-sizing: border-box;
+}
+
+.favIcon {
+  position: absolute;
+  float: right;
 }
