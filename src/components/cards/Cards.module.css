@@ -20,6 +20,8 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  color: red;
+  text-decoration: none;
 }
 
 .cards__list__items {
@@ -29,6 +31,8 @@
   width: 20rem;
   padding: 10px;
   background-color: white;
+  color: red;
+  text-decoration: none;
 }
 
 .cards__item__picWrap {
@@ -63,12 +67,37 @@
   max-width: calc((100%) - 60px);
   font-size: 12px;
   font-weight: 700;
-  color: #fff;
-  background-color: #1f98f4;
   box-sizing: border-box;
 }
 
 .favIcon {
-  position: absolute;
-  float: right;
+  display: grid;
+  justify-items: end;
+  color: pink;
+
+  width: 100%;
+}
+
+.cards__list__items {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
 }
