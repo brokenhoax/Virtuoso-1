@@ -5,6 +5,10 @@ import CardItem from "../cardItem/CardItem";
 
 class Cards extends Component {
   // Logic to Change Image
+  state = {
+    favorite: false,
+  };
+
   getImage(photo) {
     console.log("PHOTO: " + photo);
     if (photo === "JavaScript") {
@@ -46,6 +50,8 @@ class Cards extends Component {
                 .map((webinar) => (
                   <CardItem
                     key={webinar._id}
+                    favorite={this.state.favorite}
+                    favicon={styles.favIcon}
                     src={this.getImage(webinar.mainTopic)}
                     title={webinar.title}
                     skill={"Level: " + webinar.skillLevel}
