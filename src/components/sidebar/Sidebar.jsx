@@ -16,6 +16,7 @@ class Sidebar extends Component {
       webinarArray: [],
       sumHours: "",
       sumWebinars: "",
+      borderWidth: 0,
     };
   }
 
@@ -81,11 +82,13 @@ class Sidebar extends Component {
           genre={styles.genre}
           display={this.state.display}
           position={this.state.position}
+          borderWidth={this.state.borderWidth}
         />
         <Skill
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           skill={styles.skill}
+          borderWidth={this.state.borderWidth}
         />
         <Presenter
           chart={styles.chart}
@@ -93,6 +96,7 @@ class Sidebar extends Component {
           presenter={styles.presenter}
           display={this.state.display}
           position={this.state.position}
+          borderWidth={this.state.borderWidth}
         />
       </div>
     );

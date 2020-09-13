@@ -1,15 +1,27 @@
-.testy {
-  grid-area: main;
-  width: 500px;
-  height: 500px;
-  font: white;
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  font: #3e4754;
   list-style-type: none;
+  background-color: #e4e1ec;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 100%;
+  padding-left: 4rem;
 }
 
 .classy {
-  list-style-type: none;
+  display: grid;
+  justify-items: center;
+  padding-top: 4rem;
 }
 
 .userCard {
-  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  font-size: 2rem;
+  color: black;
+  padding-left: 2rem;
+  line-height: 4;
 }

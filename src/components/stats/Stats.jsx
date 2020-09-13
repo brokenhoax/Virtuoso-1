@@ -20,6 +20,7 @@ class Stats extends Component {
       sumWebinars: "",
       genreArray: [],
       topicFrequency: {},
+      borderWidth: 1,
     };
   }
 
@@ -27,8 +28,6 @@ class Stats extends Component {
     await this.webinarArray();
     await this.sumHours();
     await this.sumWebinars();
-    await this.genreArray();
-    await this.genreFrequency();
   }
 
   async webinarArray() {
@@ -64,39 +63,6 @@ class Stats extends Component {
     this.setState({ sumWebinars });
   }
 
-  // First build an array of Main Topics
-  //https://www.tutorialspoint.com/looping-through-and-getting-frequency-of-all-the-elements-in-an-array-javascript
-
-  async genreArray() {
-    await axios.get("http://localhost:3000/webinar/get/all").then((res) => {
-      const array = res.data.data;
-      const genreArray = [];
-      let i = "";
-      for (i = 0; i < array.length; i++) {
-        genreArray.push(array[i].mainTopic);
-      }
-      console.log("genreArray: " + genreArray);
-      this.setState({ genreArray });
-    });
-  }
-
-  // Then Use For Each to Create Frequency Object
-
-  genreFrequency = () => {
-    const array = this.state.genreArray;
-    const topicFrequency = {};
-    array.forEach((item) => {
-      if (topicFrequency[item]) {
-        topicFrequency[item]++;
-      } else {
-        topicFrequency[item] = 1;
-      }
-      return topicFrequency;
-    });
-    console.log("Topic Frequency object: " + JSON.stringify(topicFrequency));
-    this.setState({ topicFrequency });
-  };
-
   render() {
     return (
       <div className={styles.chartContainer}>
@@ -107,6 +73,20 @@ class Stats extends Component {
           webinars={styles.webinars}
           sumWebinars={this.state.sumWebinars}
         />
+        <Genre
+          chart={styles.chart}
+          chartHeader={styles.chartHeader}
+          genre={styles.genre}
+          display={this.state.display}
+          position={this.state.position}
+          webinars={this.state.webinarArray}
+          borderWidth={this.state.borderWidth}
+        />
+        <Timeline
+          chart={styles.chart}
+          chartHeader={styles.chartHeader}
+          timeline={styles.timeline}
+        />
         <CountHours
           chart={styles.chart}
           chartHeader={styles.chartHeader}
@@ -114,30 +94,20 @@ class Stats extends Component {
           hours={styles.hours}
           sumHours={this.state.sumHours}
         />
-        <Timeline
-          chart={styles.chart}
-          chartHeader={styles.chartHeader}
-          timeline={styles.timeline}
-        />
-        <Genre
-          chart={styles.chart}
-          chartHeader={styles.chartHeader}
-          genre={styles.genre}
-          display={this.state.display}
-          position={this.state.position}
-        />
-        <Presenter
-          chart={styles.chart}
-          chartHeader={styles.chartHeader}
-          presenter={styles.presenter}
-          displayTicks={this.state.displayTicks}
-        />
         <Skill
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           skill={styles.skill}
           display={this.state.display}
           position={this.state.position}
+          borderWidth={this.state.borderWidth}
+        />
+        <Presenter
+          chart={styles.chart}
+          chartHeader={styles.chartHeader}
+          presenter={styles.presenter}
+          displayTicks={this.state.displayTicks}
+          borderWidth={this.state.borderWidth}
         />
       </div>
     );

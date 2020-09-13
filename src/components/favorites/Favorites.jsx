@@ -22,7 +22,7 @@ class Favorites extends Component {
 
     await axios.get(FavoriteURL).then((res) => {
       const webinars = res.data.data.favorite;
-      console.log(webinars);
+      console.log("Favorites whoo hooo!" + webinars);
       this.setState({ webinars });
     });
   }
