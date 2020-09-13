@@ -16,56 +16,68 @@ class Navbar extends Component {
         <div className={styles.navWrapper}>
           <Link className={styles.navLink} to="/profile">
             <div className={styles.navContainer}>
-              <FontAwesomeIcon
-                className={styles.navLink}
-                icon={faUser}
-                size="2x"
-              />
+              <span>
+                <FontAwesomeIcon
+                  className={styles.navIcon}
+                  icon={faUser}
+                  size="2x"
+                />
+              </span>
             </div>
           </Link>{" "}
           <Link className={styles.navLink} to="/webinars">
             <div className={styles.navContainer}>
-              <FontAwesomeIcon
-                className={styles.navLink}
-                icon={faTv}
-                size="2x"
-              />
+              <span>
+                <FontAwesomeIcon
+                  className={styles.navIcon}
+                  icon={faTv}
+                  size="2x"
+                />
+              </span>
             </div>
           </Link>{" "}
           <Link className={styles.navLink} to="/schedule">
             <div className={styles.navContainer}>
-              <FontAwesomeIcon
-                className={styles.navLink}
-                icon={faCalendarAlt}
-                size="2x"
-              />
+              <span>
+                <FontAwesomeIcon
+                  className={styles.navIcon}
+                  icon={faCalendarAlt}
+                  size="2x"
+                />
+              </span>
             </div>
           </Link>{" "}
           <Link className={styles.navLink} to="/create">
             <div className={styles.navContainer}>
-              <FontAwesomeIcon
-                className={styles.navLink}
-                icon={faVideo}
-                size="2x"
-              />
+              <span>
+                <FontAwesomeIcon
+                  className={styles.navIcon}
+                  icon={faVideo}
+                  size="2x"
+                />
+              </span>
             </div>
           </Link>{" "}
-          <Link className={styles.navLink} to="/favorite">
+          <Link className={styles.navLink} to="/favorites">
             <div className={styles.navContainer}>
-              <FontAwesomeIcon
-                className={styles.navLink}
-                icon={faHeart}
-                size="2x"
-              />
+              <span>
+                <FontAwesomeIcon
+                  className={styles.navIcon}
+                  icon={faHeart}
+                  size="2x"
+                />
+              </span>
             </div>
           </Link>{" "}
           <Link className={styles.navLink} to="/stats">
             <div className={styles.navContainer}>
-              <FontAwesomeIcon
-                className={styles.navLink}
-                icon={faChartPie}
-                size="2x"
-              />
+              <span>
+                <FontAwesomeIcon
+                  className={styles.navIcon}
+                  icon={faChartPie}
+                  size="2x"
+                />
+              </span>
             </div>
           </Link>{" "}
         </div>

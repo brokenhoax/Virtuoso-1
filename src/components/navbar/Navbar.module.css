@@ -1,17 +1,19 @@
 .navi {
   display: grid;
   grid-area: navi;
-  background-color: #5f82d9;
+  background-color: #310a5d;
 }
 
 .navWrapper {
   display: grid;
   justify-items: center;
-  height: 90vh;
+  min-height: 90vh;
   position: sticky;
   position: -webkit-sticky;
   top: 80px;
   z-index: 2;
+
+  background: linear-gradient(to bottom, #005082 10%, #411e8f 50%);
 }
 
 .navLink {
@@ -19,16 +21,25 @@
   align-content: stretch;
   justify-items: center;
   color: white;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.navLink span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.25s;
+}
+
+.navLink:hover {
+  color: #ffbd69;
+}
+.navLink:hover span {
+  padding-left: 1rem;
 }
 
 .navContainer {
   display: grid;
   align-items: center;
-  justify-items: center;
-  width: 80px;
-}
-
-.navContainer:hover {
-  display: grid;
-  background-color: #293241;
 }

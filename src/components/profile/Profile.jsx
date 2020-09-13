@@ -8,25 +8,28 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:3000/user/get/all").then((res) => {
-      const persons = res.data.data;
-      console.log(persons);
-      this.setState({ persons });
-    });
+    axios
+      .get("http://localhost:3000/user/get/id/5f5d0a933ff9981734ab95a9")
+      .then((res) => {
+        const persons = res.data.data;
+        console.log(persons);
+        this.setState({ persons });
+      });
   }
 
   render() {
     return (
-      <div className={styles.testy}>
+      <div className={styles.profileContainer}>
         <ul className={styles.classy}>
-          {this.state.persons.map((person) => (
-            <li className="userCard" key={person._id}>
-              <div>{"Name: " + person.firstname + " " + person.lastname}</div>
-              <div>{"Email: " + person.email}</div>
-              <div>{"Password: " + person.password}</div>
-              <div>{"Role: " + person.role}</div>
-            </li>
-          ))}
+          <div>
+            <img src="../../assets/images/User.png" alt="User Profile" />
+          </div>
+          <li className={styles.userCard}>
+            <div>{"Name: "}</div>
+            <div>{"Email: "}</div>
+            <div>{"Password: "}</div>
+            <div>{"Role: "}</div>
+          </li>
         </ul>
       </div>
     );

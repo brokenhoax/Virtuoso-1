@@ -10,14 +10,14 @@
   grid-area: topbar;
   justify-content: end;
   align-content: center;
-  background-color: #293241;
   z-index: 2;
   top: 0;
   margin-right: 1rem;
 }
 
 .searchBar {
-  display: grid;
+  display: flex;
+  position: relative;
   grid-area: search;
   justify-content: end;
   min-width: 200px;
@@ -26,6 +26,8 @@
 }
 
 .searchBarInput {
+  display: flex;
+  position: relative;
   flex-grow: 1;
   font-size: 1.5rem;
   padding: 0 0.5rem;
@@ -34,19 +36,17 @@
 }
 
 .searchBarSubmit {
-  display: grid;
-  --size: 2.3rem;
   position: absolute;
-  align-items: center;
-  justify-self: end;
   cursor: pointer;
   background: #a664e3;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
+  border-color: #a664e3;
+  border-radius: 100%;
   border-style: solid;
   border-width: 1px;
-  border-color: white;
+  height: 2.3rem;
+  width: 2.3rem;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .searchBar:focus {

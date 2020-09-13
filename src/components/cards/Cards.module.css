@@ -6,6 +6,8 @@
   display: grid;
   font-size: 4rem;
   text-align: center;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
 }
 
 .cards__list {
@@ -26,6 +28,7 @@
   box-shadow: 2px 2px 2px 2px gray;
   width: 20rem;
   padding: 10px;
+  background-color: white;
 }
 
 .cards__item__picWrap {
