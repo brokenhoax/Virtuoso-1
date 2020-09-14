@@ -34,6 +34,11 @@
   color: black;
 }
 
+.cards__item__text {
+  color: #411e8f;
+  font-weight: bold;
+}
+
 .cards__item__picWrap {
   display: flex;
   position: relative;
@@ -57,6 +62,9 @@
   transition: all 0.2s linear;
 }
 
+.cards__item__info {
+  padding: 1rem;
+}
 .cards__item__pic-wrap::after {
   content: attr(data-category);
   position: absolute;
@@ -70,31 +78,14 @@
 }
 
 .favIcon {
-  display: grid;
+  display: flex;
   justify-items: end;
   color: #a664e3;
+  border-style: none;
+  background-color: white;
   width: 100%;
+  justify-content: end;
 }
 
 .cards__list__items {
-}
-
-a {
-  text-decoration: none;
-}
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:active {
-  text-decoration: underline;
 }

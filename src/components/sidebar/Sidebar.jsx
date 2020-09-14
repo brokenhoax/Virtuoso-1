@@ -17,6 +17,7 @@ class Sidebar extends Component {
       sumHours: "",
       sumWebinars: "",
       borderWidth: 0,
+      aspectRatio: 3,
     };
   }
 
@@ -83,12 +84,14 @@ class Sidebar extends Component {
           display={this.state.display}
           position={this.state.position}
           borderWidth={this.state.borderWidth}
+          aspectRatio={this.state.aspectRatio}
         />
         <Skill
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           skill={styles.skill}
           borderWidth={this.state.borderWidth}
+          aspectRatio={this.state.aspectRatio}
         />
         <Presenter
           chart={styles.chart}
@@ -97,6 +100,7 @@ class Sidebar extends Component {
           display={this.state.display}
           position={this.state.position}
           borderWidth={this.state.borderWidth}
+          aspectRatio={this.state.aspectRatio}
         />
       </div>
     );

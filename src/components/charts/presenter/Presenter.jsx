@@ -119,7 +119,7 @@ class Presenter extends Component {
         gridLines: {
           display: false,
         },
-        aspectRatio: 3,
+        aspectRatio: this.props.aspectRatio,
         maintainAspectRatio: true,
         scales: {
           yAxes: [

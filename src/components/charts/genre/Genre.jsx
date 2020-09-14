@@ -11,6 +11,7 @@ class Genre extends Component {
     this.state = {
       genreArray: [],
       topicFrequency: {},
+      aspectRatio: "",
     };
   }
 
@@ -102,7 +103,7 @@ class Genre extends Component {
         gridLines: {
           display: false,
         },
-        aspectRatio: 3,
+        aspectRatio: this.props.aspectRatio,
         maintainAspectRatio: true,
         scales: {
           yAxes: [
