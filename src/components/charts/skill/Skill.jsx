@@ -99,6 +99,7 @@ class Skill extends Component {
         gridLines: {
           display: false,
         },
+        aspectRatio: this.props.aspectRatio,
         maintainAspectRatio: true,
         scales: {
           yAxes: [

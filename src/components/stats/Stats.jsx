@@ -21,6 +21,7 @@ class Stats extends Component {
       genreArray: [],
       topicFrequency: {},
       borderWidth: 1,
+      aspectRatio: 2,
     };
   }
 
@@ -81,11 +82,13 @@ class Stats extends Component {
           position={this.state.position}
           webinars={this.state.webinarArray}
           borderWidth={this.state.borderWidth}
+          aspectRatio={this.state.aspectRatio}
         />
         <Timeline
           chart={styles.chart}
           chartHeader={styles.chartHeader}
           timeline={styles.timeline}
+          aspectRatio={this.state.aspectRatio}
         />
         <CountHours
           chart={styles.chart}
@@ -101,6 +104,7 @@ class Stats extends Component {
           display={this.state.display}
           position={this.state.position}
           borderWidth={this.state.borderWidth}
+          aspectRatio={this.state.aspectRatio}
         />
         <Presenter
           chart={styles.chart}
@@ -108,6 +112,7 @@ class Stats extends Component {
           presenter={styles.presenter}
           displayTicks={this.state.displayTicks}
           borderWidth={this.state.borderWidth}
+          aspectRatio={this.state.aspectRatio}
         />
       </div>
     );

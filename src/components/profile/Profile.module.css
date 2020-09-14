@@ -1,73 +1,85 @@
 .profileContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
   font: #3e4754;
   list-style-type: none;
   background-color: #e4e1ec;
   margin-left: 20%;
   margin-right: 20%;
-  height: 100%;
-}
-
-.userPic {
-  width: 200px;
 }
 
 .profileHeader {
-  color: #3e4754;
-  font-size: 4rem;
+  color: #005082;
   text-align: center;
-  padding-top: 4rem;
+  padding-top: 2rem;
+  font-size: 4rem;
+}
+.userPic {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  padding: 2rem;
+}
+
+.userImage {
+  display: flex;
+  justify-content: center;
 }
 
 .profileWrapper {
-  display: grid;
-  justify-items: center;
-  padding: 4rem;
-}
-
-.profileSection {
   display: flex;
-  padding: 1rem;
-}
-
-.profileKey {
-  color: #005082;
-  padding: 1rem;
-}
-
-.profileValue {
-  color: #3e4754;
-  padding: 1rem;
+  flex-direction: column;
 }
 
 .userCard {
   display: flex;
   flex-direction: column;
-  align-self: stretch;
   font-size: 2rem;
-  color: black;
-
-  line-height: 2;
+  color: #005082;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   width: 100%;
+}
+
+.profileSection {
+  display: flex;
+}
+
+.profileKey {
+  display: flex;
+  color: #005082;
+  margin: 1rem;
+  margin-left: 35%;
+}
+
+.profileValue {
+  display: flex;
+  color: #3e4754;
+  margin: 1rem;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  padding-top: 2rem;
 }
 
 .update {
   margin: 1rem;
   border: none;
   border-radius: 10px;
+  color: #005082;
 }
 
 .signOut {
   margin: 1rem;
   border: none;
   border-radius: 10px;
+  color: #005082;
 }
 
 .update:hover {
@@ -80,4 +92,8 @@
   background-color: #a664e3;
   color: white;
   border: none;
+}
+
+button:focus {
+  outline: none;
 }
