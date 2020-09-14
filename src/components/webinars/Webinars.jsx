@@ -27,7 +27,7 @@ class Webinars extends Component {
   }
 
   searchChanged = (event) => {
-    console.log("Hi! From: onChange", event.target.value);
+    console.log("webinar.jsx searchChanged", event.target.value);
     this.setState({
       search: event.target.value,
     });

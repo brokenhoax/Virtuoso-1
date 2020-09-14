@@ -8,7 +8,7 @@ function CardItem(props) {
   return (
     <>
       <li className={styles.cards__list__items}>
-        <Link className={props.cards__items__link} to={props.path}>
+        <div className={props.cards__items__link} to={props.path}>
           <figure
             className={styles.cards__item__picWrap}
             data-category={props.label}
@@ -34,7 +34,7 @@ function CardItem(props) {
               />
             </span>
           </div>
-        </Link>
+        </div>
       </li>
     </>
   );

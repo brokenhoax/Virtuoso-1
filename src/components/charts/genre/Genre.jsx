@@ -102,6 +102,7 @@ class Genre extends Component {
         gridLines: {
           display: false,
         },
+        aspectRatio: 3,
         maintainAspectRatio: true,
         scales: {
           yAxes: [

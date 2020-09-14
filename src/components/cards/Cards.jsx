@@ -53,15 +53,7 @@ class Cards extends Component {
                     favorite={this.state.favorite}
                     src={this.getImage(webinar.mainTopic)}
                     title={webinar.title}
-                    skill={"Level: " + webinar.skillLevel}
-                    date={
-                      "Date: " +
-                      webinar.date.month +
-                      "-" +
-                      webinar.date.day +
-                      "-" +
-                      webinar.date.year
-                    }
+                    skill={webinar.skillLevel}
                     time={"Time: " + webinar.date.startTime}
                     duration={"Duration: " + webinar.date.duration}
                     topic={"Topic: " + webinar.mainTopic}
