@@ -51,7 +51,6 @@ class Cards extends Component {
                   <CardItem
                     key={webinar._id}
                     favorite={this.state.favorite}
-                    favicon={styles.favIcon}
                     src={this.getImage(webinar.mainTopic)}
                     title={webinar.title}
                     skill={"Level: " + webinar.skillLevel}

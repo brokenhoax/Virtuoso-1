@@ -26,7 +26,7 @@ function CardItem(props) {
             <h5 className={props.cards__item__time}>{props.time}</h5>
             <h5 className={props.cards__item__duration}>{props.duration}</h5>
             <h5 className={props.cards__item__topic}>{props.topic}</h5>
-            <span className={props.favIcon}>
+            <span className={styles.favIcon}>
               <FontAwesomeIcon
                 className={styles.navIcon}
                 icon={faHeart}
