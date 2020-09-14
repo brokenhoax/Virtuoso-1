@@ -15,6 +15,7 @@ import Favorites from "./components/favorites/Favorites";
 import Webinars from "./components/webinars/Webinars";
 import Profile from "./components/profile/Profile";
 import PageNotFound from "./components/error/Error";
+import CreateWebinar from "./components/createWebinar/CreateWebinar";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
             component={Favorites}
             className="webinars"
           />
+          <Route exact path="/create" component={CreateWebinar} />
           <Route path="/stats" exact={true} component={Stats} />
           <Route path="/schedule" exact={true} component={Schedule} />
           <Route path="/404" component={PageNotFound} />
