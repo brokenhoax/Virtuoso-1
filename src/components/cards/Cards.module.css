@@ -20,6 +20,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
 
 .cards__list__items {
@@ -29,6 +30,13 @@
   width: 20rem;
   padding: 10px;
   background-color: white;
+  text-decoration: none;
+  color: black;
+}
+
+.cards__item__text {
+  color: #411e8f;
+  font-weight: bold;
 }
 
 .cards__item__picWrap {
@@ -54,6 +62,9 @@
   transition: all 0.2s linear;
 }
 
+.cards__item__info {
+  padding: 1rem;
+}
 .cards__item__pic-wrap::after {
   content: attr(data-category);
   position: absolute;
@@ -63,12 +74,18 @@
   max-width: calc((100%) - 60px);
   font-size: 12px;
   font-weight: 700;
-  color: #fff;
-  background-color: #1f98f4;
   box-sizing: border-box;
 }
 
 .favIcon {
-  position: absolute;
-  float: right;
+  display: flex;
+  justify-items: end;
+  color: #a664e3;
+  border-style: none;
+  background-color: white;
+  width: 100%;
+  justify-content: end;
+}
+
+.cards__list__items {
 }

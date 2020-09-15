@@ -10,6 +10,7 @@ class Profile extends Component {
     email: "rbobby42@gmail.com",
     password: "**********",
     role: "Virtuoso",
+    userID: "5f5eab5db441a11880065897",
   };
 
   componentDidMount() {
@@ -25,9 +26,8 @@ class Profile extends Component {
       <div className={styles.profileContainer}>
         <h1 className={styles.profileHeader}>My Profile</h1>
         <ul className={styles.profileWrapper}>
-          <div>
+          <div className={styles.userImage}>
             <img
-              className={styles.userPic}
               src="../../assets/images/User.png"
               className={styles.userPic}
               alt="User Profile"
@@ -36,7 +36,7 @@ class Profile extends Component {
           <li className={styles.userCard}>
             <div className={styles.profileSection}>
               <div className={styles.profileKey}>
-                <strong>Name: </strong>
+                <strong>Name:</strong>
               </div>
               <div className={styles.profileValue}>
                 {this.state.firstname} {this.state.lastname}
@@ -44,19 +44,19 @@ class Profile extends Component {
             </div>
             <div className={styles.profileSection}>
               <div className={styles.profileKey}>
-                <strong>Email: </strong>
+                <strong>Email:</strong>
               </div>
               <div className={styles.profileValue}>{this.state.email}</div>
             </div>
             <div className={styles.profileSection}>
               <div className={styles.profileKey}>
-                <strong>Password: </strong>
+                <strong>Password:</strong>
               </div>
               <div className={styles.profileValue}>{this.state.password}</div>
             </div>
             <div className={styles.profileSection}>
               <div className={styles.profileKey}>
-                <strong>Role: </strong>
+                <strong>Role:</strong>
               </div>
               <div className={styles.profileValue}>{this.state.role}</div>
             </div>
