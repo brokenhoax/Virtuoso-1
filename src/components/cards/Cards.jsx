@@ -1,21 +1,22 @@
 // import React from "react";
-import React, { useContext, useState } from "react";
+import React from "react";
 import { useWebinar } from "../../utils/WebinarContext";
+import { useUser } from "../../utils/UserContext";
 import styles from "./Cards.module.css";
 import CardItem from "../cardItem/CardItem";
 import axios from "axios";
 
 const Cards = (props) => {
-  // Using Context
-  const initialWebinarContext = useWebinar();
-  const webinars = initialWebinarContext;
-  // let [webinars, setWebinars] = useContext(WebinarContext);
+  // Using Webinar Context
+  const webinarContext = useWebinar();
+  const webinars = webinarContext;
 
-  // console.log("what are thes props?" + props.search);
+  // Using User Context
+  const userContext = useUser();
+  const user = userContext;
 
   // Logic to Change Image
   function getImage(photo) {
-    console.log("PHOTO: " + photo);
     if (photo === "JavaScript") {
       return (photo = "assets/images/JavaScript.png");
     }
