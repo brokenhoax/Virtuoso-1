@@ -79,13 +79,10 @@
 
 .favIcon {
   display: flex;
-  justify-items: end;
+  justify-items: flex-end;
   color: #a664e3;
   border-style: none;
   background-color: white;
   width: 100%;
-  justify-content: end;
-}
-
-.cards__list__items {
+  justify-content: flex-end;
 }

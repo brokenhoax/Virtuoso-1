@@ -2,7 +2,6 @@ import React, { useState, createContext, useEffect, useContext } from "react";
 import axios from "axios";
 
 export const WebinarContext = createContext();
-export const WebinarUpdateContext = createContext();
 
 export function useWebinar() {
   return useContext(WebinarContext);
@@ -46,13 +45,12 @@ export const WebinarProvider = ({ children }) => {
     },
   ]);
 
-  useEffect(() => {
+  useEffect((webinars) => {
     axios
       .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
       .then((res) => {
         const results = res.data.data;
         setWebinars(results);
-        console.log("Axios Webinars:" + webinars);
       })
       .catch((err) => {
         console.log(err);
