@@ -1,164 +1,128 @@
+
 import React, { Component } from "react";
 import { Container, Row, Col, InputGroup } from "react-bootstrap";
 import styles from "./CreateWebinar.module.css";
 
 class CreateWebinar extends Component {
-  state = {
-    title: "",
-    description: "",
-    timezone: "",
-    year: "",
-    month: "",
-    day: "",
-    webinarDuration: 0,
-    eventTitle: "",
-    eventStart: "",
-    eventEnd: "",
-    hosts: [],
-    mainTopic: "Topic",
-    skillLevel: "",
-    videoUrl: "",
-    videoTitle: "",
-    videoDescription: "",
-    educational: false,
-    networking: false,
-    finance: false,
-    marketing: false,
-    engineering: false,
-    created_by: {},
-  };
-
-  onSubmit = (e) => {
-    let newWebinar = {
-      title: this.state.title,
-      description: this.state.description,
-      date: {
-        timezone: this.state.timezone,
-        date: this.state.year + "-" + this.state.month + "-" + this.state.day,
-        duration: this.state.duration,
-        event: {
-          title: this.state.eventTitle,
-          start: this.state.eventStart,
-          end: this.state.eventEnd,
-        },
-      },
-      hosts: "Userid Here",
-      mainTopic: this.state.marketing,
-      skillLevel: this.state.skillLevel,
-      video: {
-        url: this.state.videoUrl,
-        title: this.state.videoTitle,
-        description: this.state.videoDescription,
-        viewed_by: ["people"],
-      },
-      tags: {
-        educational: this.state.educational,
-        networking: this.state.networking,
-        finance: this.state.finance,
-        marketing: this.state.marketing,
-        engineering: this.state.engineering,
-      },
-      created_by: "User Here",
+    state = {
+        title: "",
+        description: "",
+        timezone: "",
+        year: "",
+        month: "",
+        day: "",
+        webinarDuration: 0,
+        eventTitle: "",
+        eventStart: "",
+        eventEnd: "",
+        hosts: [],
+        mainTopic: "Topic",
+        skillLevel: "",
+        videoUrl: "",
+        videoTitle: "",
+        videoDescription: "",
+        educational: false,
+        networking: false,
+        finance: false,
+        marketing: false,
+        engineering: false,
+        created_by: {},
     };
-    console.log(newWebinar);
-    debugger;
-  };
+    postNewWebinar = async (data) => {
+        try {
+            const res = await axios.post('https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create',
+                data,
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            console.log(res.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    onSubmit = e => {
+        e.preventDefault();
+        let data = {
+            title: this.state.title,
+            description: this.state.description,
+            date: {
+                timezone: this.state.timezone,
+                date: this.state.year + "-" + this.state.month + "-" + this.state.day,
+                duration: this.state.webinarDuration,
+                event: {
+                    title: this.state.eventTitle,
+                    start: this.state.eventStart,
+                    end: this.state.eventEnd
+                }
+            },
 
-  trueFalseRadio = (e) => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+            mainTopic: this.state.mainTopic,
+            skillLevel: this.state.skillLevel,
+            video: {
+                url: this.state.videoUrl,
+                title: this.state.videoTitle,
+                description: this.state.videoDescription
+            },
+            tags: {
+                educational: this.state.educational,
+                networking: this.state.networking,
+                finance: this.state.finance,
+                marketing: this.state.marketing,
+                engineering: this.state.engineering
+            }
+        }
+        this.postNewWebinar(data);
+    }
+    trueFalseRadio = (e) => {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
-    this.setState({ [name]: value });
-  };
-  handleInputChange(event) {
-    const {
-      target: { name, value },
-    } = event;
-    this.setState({ [name]: value });
-    console.log(this.state.title);
-  }
+        this.setState({ [name]: value });
+    }
+    handleInputChange(event) {
+        const { target: { name, value } } = event
+        if (name === "webinarDuration") {
+            this.setState({ [name]: parseInt(value) });
+        } else {
+            this.setState({ [name]: value });
+        }
+    }
 
-  render() {
-    let day = [
-      "--",
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "20",
-      "21",
-      "22",
-      "23",
-      "24",
-      "25",
-      "26",
-      "27",
-      "28",
-      "29",
-      "30",
-      "31",
-    ];
-    let dayOptions =
-      day.length > 0 &&
-      day.map((num, i) => {
+
+
+    
+
+    render() {
+        let day = ['--', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+        let dayOptions = day.length > 0 && day.map((num, i) => {
+            return (
+                <option key={i} value={num}>{num}</option>
+            );
+        });
+        let month = ['--', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        let monthOptions = month.length > 0 && month.map((num, i) => {
+            return (
+                <option key={i} value={num}>{num}</option>
+            );
+        });
+        let year = ['--', '2020', '2021', '2022', '2023', '2024'];
+        let yearOptions = year.length > 0 && year.map((num, i) => {
+            return (
+                <option key={i} value={num}>{num}</option>
+            );
+        });
+        let dur = [0, 15, 30, 45, 60, 75, 90, 105, 120]
+        let durOptions = dur.length > 0 && dur.map((num, i) => {
+            return (
+                <option key={i} value={num}>{num}</option>
+            )
+        })
+
         return (
-          <option key={i} value={num}>
-            {num}
-          </option>
-        );
-      });
-    let month = [
-      "--",
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-    ];
-    let monthOptions =
-      month.length > 0 &&
-      month.map((num, i) => {
-        return (
-          <option key={i} value={num}>
-            {num}
-          </option>
-        );
-      });
-    let year = ["--", "2020", "2021", "2022", "2023", "2024"];
-    let yearOptions =
-      year.length > 0 &&
-      year.map((num, i) => {
-        return (
-          <option key={i} value={num}>
-            {num}
-          </option>
-        );
-      });
-
-    return (
+            return (
       <form>
         <div>
           <Container className={styles.createContainer}>
