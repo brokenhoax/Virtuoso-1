@@ -13,13 +13,13 @@ class Profile extends Component {
     userID: "5f5eab5db441a11880065897",
   };
 
-  componentDidMount() {
-    axios.get("http://localhost:3000/user/get/all").then((res) => {
-      const persons = res.data.data;
-      console.log(persons);
-      this.setState({ persons });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get("http://localhost:3000/user/get/all").then((res) => {
+  //     const persons = res.data.data;
+  //     console.log(persons);
+  //     this.setState({ persons });
+  //   });
+  // }
 
   render() {
     return (
