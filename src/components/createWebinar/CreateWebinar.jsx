@@ -121,8 +121,8 @@ class CreateWebinar extends Component {
             )
         })
 
-        return (
-            return (
+
+    return (
       <form>
         <div>
           <Container className={styles.createContainer}>
@@ -251,15 +251,16 @@ class CreateWebinar extends Component {
             <div>
               <section className={styles.duration}>
                 Duration (In Minutes):
-                <input
+                <select
                   className={styles.inputRight}
                   name="webinarDuration"
                   placeholder="webinarDuration"
                   value={this.state.webinarDuration}
                   onChange={(event) => {
                     this.handleInputChange(event);
-                  }}
-                />
+                  }}>
+                      {durOptions}
+                </select>
               </section>
             </div>
             <div>
