@@ -11,6 +11,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
+import bootstrapPlugin from "@fullcalendar/bootstrap";
 
 class Schedule extends Component {
   constructor(props) {
@@ -66,7 +67,12 @@ class Schedule extends Component {
               right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
             //Installed Calendar Plugins.
-            plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
+            plugins={[
+              dayGridPlugin,
+              timeGridPlugin,
+              listPlugin,
+              bootstrapPlugin,
+            ]}
             //`events` fetch data from JSON feed
             events={this.state.eventsObj}
           />

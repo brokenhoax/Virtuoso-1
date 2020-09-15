@@ -29,6 +29,7 @@ function CardItem(props) {
               className={styles.cards__item__video}
               href={props.link}
               target="_blank"
+              rel="noopener noreferrer"
             >
               Watch Now!
             </a>

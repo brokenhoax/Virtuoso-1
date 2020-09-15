@@ -4,39 +4,40 @@ import { Container, Row, Col, InputGroup } from 'react-bootstrap'
 
 class CreateWebinar extends Component {
     state = {
-        title: '',
-        description: '',
-        timezone: '',
-        year: '',
-        month: '',
-        day: '',
+        title: "",
+        description: "",
+        timezone: "",
+        year: "",
+        month: "",
+        day: "",
         webinarDuration: 0,
-        eventTitle: '',
-        eventStart: '',
-        eventEnd: '',
+        eventTitle: "",
+        eventStart: "",
+        eventEnd: "",
         hosts: [],
-        mainTopic: 'Topic',
-        skillLevel: '',
-        videoUrl: '',
-        videoTitle: '',
-        videoDescription: '',
+        mainTopic: "Topic",
+        skillLevel: "",
+        videoUrl: "",
+        videoTitle: "",
+        videoDescription: "",
         educational: false,
         networking: false,
         finance: false,
         marketing: false,
         engineering: false,
-        created_by: {}
-
-    }
+        created_by: {},
+    };
     postNewWebinar = async (data) => {
-        try{
+        try {
             const res = await axios.post('https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create',
-             data,
-            {headers: {
+                data,
+                {
+                    headers: {
                         'Content-Type': 'application/json'
-                    }});
+                    }
+                });
             console.log(res.data);
-        }catch (err) {
+        } catch (err) {
             console.log(err);
         }
     };
@@ -72,21 +73,7 @@ class CreateWebinar extends Component {
             }
         }
         this.postNewWebinar(data);
-
-        // axios({
-        //     method: 'POST',
-        //     url:"https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create",
-        //     data: data,
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': '*'
-        //     }
-        // }).then((res) => {
-        //         console.log(res);
-        //         console.log(res.data);
-        //     }).catch((err) => console.log(err.response.request._response));
     }
-
     trueFalseRadio = (e) => {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -123,7 +110,7 @@ class CreateWebinar extends Component {
                 <option key={i} value={num}>{num}</option>
             );
         });
-        let dur = ['--', 0, 15, 30, 45, 60, 75, 90, 105, 120]
+        let dur = [0, 15, 30, 45, 60, 75, 90, 105, 120]
         let durOptions = dur.length > 0 && dur.map((num, i) => {
             return (
                 <option key={i} value={num}>{num}</option>
@@ -253,37 +240,69 @@ class CreateWebinar extends Component {
                                 onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                     </Row>
-
                     <Row>
                         Tags:
-                        <Col md={3} xs={4} >
+                     <Col md={3} xs={4}>
                             <InputGroup.Text>
-                                <InputGroup.Checkbox name="educational" value={this.state.educational} onChange={(e) => { this.trueFalseRadio(e) }} aria-label="Educational" />
-                            Educational
+                                <InputGroup.Checkbox
+                                    name="educational"
+                                    value={this.state.educational}
+                                    onChange={(e) => {
+                                        this.trueFalseRadio(e);
+                                    }}
+                                    aria-label="Educational"
+                                />
+                               Educational
+                             </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4}>
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox
+                                    name="networking"
+                                    value={this.state.networking}
+                                    onChange={(e) => {
+                                        this.trueFalseRadio(e);
+                                    }}
+                                />{" "}
+                               Finance
+                             </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4}>
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox
+                                    name="finance"
+                                    value={this.state.finance}
+                                    onChange={(e) => {
+                                        this.trueFalseRadio(e);
+                                    }}
+                                />{" "}
+                           Finance
+                         </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4}>
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox
+                                    name="marketing"
+                                    value={this.state.marketing}
+                                    onChange={(e) => {
+                                        this.trueFalseRadio(e);
+                                    }}
+                                />{" "}
+                              Marketing
                             </InputGroup.Text>
                         </Col>
-                        <Col md={3} xs={4} >
+                        <Col md={3} xs={4}>
                             <InputGroup.Text>
-                                <InputGroup.Checkbox name="networking" value={this.state.networking} onChange={(e) => { this.trueFalseRadio(e) }} /> Finance
-                            </InputGroup.Text>
-                        </Col>
-                        <Col md={3} xs={4} >
-
-                            <InputGroup.Text>
-                                <InputGroup.Checkbox name="finance" value={this.state.finance} onChange={(e) => { this.trueFalseRadio(e) }} /> Finance
-                            </InputGroup.Text>
-                        </Col>
-                        <Col md={3} xs={4} >
-
-                            <InputGroup.Text>
-                                <InputGroup.Checkbox name="marketing" value={this.state.marketing} onChange={(e) => { this.trueFalseRadio(e) }} /> Marketing
-                            </InputGroup.Text>
-                        </Col>
-                        <Col md={3} xs={4} >
-
-                            <InputGroup.Text>
-                                <InputGroup.Checkbox placeholder="engineering" name="engineering" value={this.state.engineering} onChange={(e) => { this.trueFalseRadio(e) }} /> Engineering
-                            </InputGroup.Text>
+                                <InputGroup.Checkbox
+                                    placeholder="engineering"
+                                    name="engineering"
+                                    value={this.state.engineering}
+                                    onChange={(e) => {
+                                        this.trueFalseRadio(e);
+                                    }}
+                                />{" "}
+                               Engineering
+                             </InputGroup.Text>
                         </Col>
                     </Row>
 
