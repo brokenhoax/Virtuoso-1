@@ -1,0 +1,127 @@
+.createContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "mainTopic day"
+    "title duration"
+    "description timeZone"
+    "skillLevel eventStart"
+    "eventTitle eventEnd"
+    "videoURL videoTitle "
+    "videoDescription videoDescription"
+    "tags tags"
+    "buddy buddy";
+  background-color: #e4e1ec;
+  color: #005082;
+  font-weight: bold;
+  height: 91vh;
+}
+
+.header {
+  display: grid;
+  grid-area: header;
+  justify-items: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.inputFieldLeft {
+  margin-left: 1rem;
+}
+
+.inputRight {
+  margin-left: 1rem;
+}
+
+.title {
+  grid-area: title;
+  margin: 1rem;
+}
+
+.description {
+  grid-area: description;
+  margin: 1rem;
+}
+
+.mainTopic {
+  grid-area: mainTopic;
+  margin: 1rem;
+}
+
+.skillLevel {
+  grid-area: skillLevel;
+  margin: 1rem;
+}
+
+.timeZone {
+  grid-area: timeZone;
+  margin: 1rem;
+}
+
+.dayContainer {
+  grid-area: day;
+  margin: 1rem;
+}
+
+.day {
+  display: flex;
+  flex-direction: row;
+  grid-area: day;
+  margin: 1rem;
+}
+.dayDrop {
+  padding: 0.5rem;
+}
+
+.duration {
+  grid-area: duration;
+  margin: 1rem;
+}
+
+.eventTitle {
+  grid-area: eventTitle;
+  margin: 1rem;
+}
+
+.eventStart {
+  grid-area: eventStart;
+  margin: 1rem;
+}
+
+.eventEnd {
+  grid-area: eventEnd;
+  margin: 1rem;
+}
+
+.videoURL {
+  grid-area: videoURL;
+  margin: 1rem;
+}
+
+.videoTitle {
+  grid-area: videoTitle;
+  margin: 1rem;
+}
+
+.videoDescription {
+  grid-area: videoDescription;
+  margin: 1rem;
+}
+
+#buddy {
+  display: grid;
+  justify-self: center;
+  align-content: center;
+  grid-area: buddy;
+  margin: 1rem;
+  width: 40%;
+  font-size: 1rem;
+}
+
+.tags {
+  display: grid;
+  grid-area: tags;
+  justify-content: center;
+}
