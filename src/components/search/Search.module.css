@@ -20,7 +20,7 @@
   display: flex;
   position: relative;
   grid-area: search;
-  justify-content: end;
+  justify-content: flex-end;
   min-width: 200px;
   border: 2px var(--clr-bg);
   z-index: 10;
