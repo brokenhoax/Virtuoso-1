@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import styles from "./Profile.module.css";
 
 class Profile extends Component {
@@ -12,14 +11,6 @@ class Profile extends Component {
     role: "Virtuoso",
     userID: "5f5eab5db441a11880065897",
   };
-
-  componentDidMount() {
-    axios.get("http://localhost:3000/user/get/all").then((res) => {
-      const persons = res.data.data;
-      console.log(persons);
-      this.setState({ persons });
-    });
-  }
 
   render() {
     return (
