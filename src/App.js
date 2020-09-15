@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 import Logo from "./components/logo/Logo";
 import Topbar from "./components/topbar/Topbar";
 import Navbar from "./components/navbar/Navbar";
