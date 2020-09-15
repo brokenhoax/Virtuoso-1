@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, InputGroup } from "react-bootstrap";
+import styles from "./CreateWebinar.module.css";
 
 class CreateWebinar extends Component {
   state = {
@@ -159,161 +160,191 @@ class CreateWebinar extends Component {
 
     return (
       <form>
-        <Container>
-          <Row>
-            <Col>
+        <div>
+          <Container className={styles.createContainer}>
+            <div className={styles.header}>Create Your Webinar</div>
+            <div>
+              <section className={styles.title}>
+                Title:
+                <input
+                  className={styles.inputFieldLeft}
+                  name="title"
+                  placeholder="title"
+                  value={this.state.title}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                />
+              </section>
+            </div>
+            <div>
+              <section className={styles.description}>
+                Description:
+                <input
+                  className={styles.inputFieldLeft}
+                  name="description"
+                  placeholder="description"
+                  value={this.state.description}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                />
+              </section>
+            </div>
+            <div>
+              <section className={styles.mainTopic}>
+                Main Topic:
+                <select
+                  className={styles.inputFieldLeft}
+                  name="mainTopic"
+                  value={this.state.mainTopic}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                >
+                  <option value="--">--</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="Python"> Python</option>
+                  <option value="Angular"> Angular</option>
+                  <option value="React"> React</option>
+                  <option value="Node JS"> Node JS</option>
+                  <option value="MongoDB"> MongoDB</option>
+                </select>
+              </section>
+              <section className={styles.skillLevel}>
+                Skill Level:
+                <select
+                  className={styles.inputFieldLeft}
+                  name="skillLevel"
+                  value={this.state.skillLevel}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                >
+                  <option value="--">--</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate"> Intermediate</option>
+                  <option value="Advanced"> Advanced</option>
+                </select>
+              </section>
+            </div>
+            <div>
+              <section className={styles.day}>
+                <div className={styles.dayDrop}> Day:</div>
+                <select
+                  className={styles.dayDrop}
+                  name="day"
+                  value={this.state.day}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                >
+                  {dayOptions}
+                </select>
+                <div className={styles.dayDrop}> Month:</div>
+                <select
+                  className={styles.inputFieldLeft}
+                  name="month"
+                  value={this.state.month}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                >
+                  {monthOptions}
+                </select>
+                <div className={styles.dayDrop}> Year:</div>
+                <select
+                  className={styles.inputFieldLeft}
+                  name="year"
+                  value={this.state.year}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                >
+                  {yearOptions}
+                </select>
+              </section>
+              <section className={styles.timeZone}>
+                Timezone:
+                <select
+                  className={styles.inputRight}
+                  name="timezone"
+                  value={this.state.timezone}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                >
+                  <option value="--">--</option>
+                  <option value="CDT">CDT</option>
+                  <option value="MDT"> MDT</option>
+                  <option value="MST"> MST</option>
+                  <option value="PDT"> PDT</option>
+                  <option value="AKDT"> AKDT</option>
+                  <option value="HDT"> HDT</option>
+                </select>
+              </section>
+            </div>
+            <div>
+              <section className={styles.duration}>
+                Duration (In Minutes):
+                <input
+                  className={styles.inputRight}
+                  name="webinarDuration"
+                  placeholder="webinarDuration"
+                  value={this.state.webinarDuration}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                />
+              </section>
+            </div>
+            <div>
+              <section className={styles.eventTitle}>
+                Event Title:
+                <input
+                  className={styles.inputRight}
+                  name="eventTitle"
+                  placeholder="eventTitle"
+                  value={this.state.eventTitle}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                />
+              </section>
+            </div>
+            <div>
+              <section className={styles.eventStart}>
+                Event Start Time:
+                <input
+                  className={styles.inputRight}
+                  name="eventStart"
+                  placeholder="eventStart"
+                  value={this.state.eventStart}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                />
+              </section>
+            </div>
+            <div>
+              <section className={styles.eventEnd}>
+                Event End Time:
+                <input
+                  className={styles.inputRight}
+                  name="eventEnd"
+                  placeholder="eventEnd"
+                  value={this.state.eventEnd}
+                  onChange={(event) => {
+                    this.handleInputChange(event);
+                  }}
+                />
+              </section>
+            </div>
+
+            <section className={styles.videoURL}>
+              Video URL:
               <input
-                name="title"
-                placeholder="title"
-                value={this.state.title}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              />
-            </Col>
-            <Col>
-              <input
-                name="description"
-                placeholder="description"
-                value={this.state.description}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              Main Topic:
-              <select
-                name="mainTopic"
-                value={this.state.mainTopic}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              >
-                <option value="--">--</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="Python"> Python</option>
-                <option value="Angular"> Angular</option>
-                <option value="React"> React</option>
-                <option value="Node JS"> Node JS</option>
-                <option value="MongoDB"> MongoDB</option>
-              </select>
-            </Col>
-            <Col>
-              Skill Level:
-              <select
-                name="skillLevel"
-                value={this.state.skillLevel}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              >
-                <option value="--">--</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate"> Intermediate</option>
-                <option value="Advanced"> Advanced</option>
-              </select>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="auto">
-              Timezone:
-              <select
-                name="timezone"
-                value={this.state.timezone}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              >
-                <option value="--">--</option>
-                <option value="CDT">CDT</option>
-                <option value="MDT"> MDT</option>
-                <option value="MST"> MST</option>
-                <option value="PDT"> PDT</option>
-                <option value="AKDT"> AKDT</option>
-                <option value="HDT"> HDT</option>
-              </select>
-            </Col>
-            <Col md="auto">
-              Day:
-              <select
-                name="day"
-                value={this.state.day}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              >
-                {dayOptions}
-              </select>
-              Month:
-              <select
-                name="month"
-                value={this.state.month}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              >
-                {monthOptions}
-              </select>
-              Year:
-              <select
-                name="year"
-                value={this.state.year}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              >
-                {yearOptions}
-              </select>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <input
-                name="webinarDuration"
-                placeholder="webinarDuration"
-                value={this.state.webinarDuration}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              />
-            </Col>
-            <Col>
-              <input
-                name="eventTitle"
-                placeholder="eventTitle"
-                value={this.state.eventTitle}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              />
-            </Col>
-            <Col>
-              <input
-                name="eventStart"
-                placeholder="eventStart"
-                value={this.state.eventStart}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              />
-            </Col>
-            <Col>
-              <input
-                name="eventEnd"
-                placeholder="eventEnd"
-                value={this.state.eventEnd}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <input
+                className={styles.inputRight}
                 name="videoUrl"
                 placeholder="videoUrl"
                 value={this.state.videoUrl}
@@ -321,9 +352,11 @@ class CreateWebinar extends Component {
                   this.handleInputChange(event);
                 }}
               />
-            </Col>
-            <Col>
+            </section>
+            <section className={styles.videoTitle}>
+              Video Title:
               <input
+                className={styles.inputRight}
                 name="videoTitle"
                 placeholder="videoTitle"
                 value={this.state.videoTitle}
@@ -331,9 +364,11 @@ class CreateWebinar extends Component {
                   this.handleInputChange(event);
                 }}
               />
-            </Col>
-            <Col>
+            </section>
+            <section className={styles.videoDescription}>
+              Video Description:
               <input
+                className={styles.inputRight}
                 name="videoDescription"
                 placeholder="videoDescription"
                 value={this.state.videoDescription}
@@ -341,77 +376,87 @@ class CreateWebinar extends Component {
                   this.handleInputChange(event);
                 }}
               />
-            </Col>
-          </Row>
+            </section>
+            <div className={styles.tags}>
+              Tags:
+              <section>
+                <InputGroup.Text>
+                  <InputGroup.Checkbox
+                    className={styles.educational}
+                    name="educational"
+                    value={this.state.educational}
+                    onChange={(e) => {
+                      this.trueFalseRadio(e);
+                    }}
+                    aria-label="Educational"
+                  />
+                  Educational
+                </InputGroup.Text>
+              </section>
+              <section>
+                <InputGroup.Text>
+                  <InputGroup.Checkbox
+                    className={styles.networking}
+                    name="networking"
+                    value={this.state.networking}
+                    onChange={(e) => {
+                      this.trueFalseRadio(e);
+                    }}
+                  />{" "}
+                  Finance
+                </InputGroup.Text>
+              </section>
+              <section>
+                <InputGroup.Text>
+                  <InputGroup.Checkbox
+                    className={styles.finance}
+                    name="finance"
+                    value={this.state.finance}
+                    onChange={(e) => {
+                      this.trueFalseRadio(e);
+                    }}
+                  />{" "}
+                  Finance
+                </InputGroup.Text>
+              </section>
+              <section>
+                <InputGroup.Text>
+                  <InputGroup.Checkbox
+                    className={styles.marketing}
+                    name="marketing"
+                    value={this.state.marketing}
+                    onChange={(e) => {
+                      this.trueFalseRadio(e);
+                    }}
+                  />{" "}
+                  Marketing
+                </InputGroup.Text>
+              </section>
+              <section>
+                <InputGroup.Text>
+                  <InputGroup.Checkbox
+                    className={styles.engineer}
+                    placeholder="engineering"
+                    name="engineering"
+                    value={this.state.engineering}
+                    onChange={(e) => {
+                      this.trueFalseRadio(e);
+                    }}
+                  />{" "}
+                  Engineering
+                </InputGroup.Text>
+              </section>
+            </div>
 
-          <Row>
-            Tags:
-            <Col md={3} xs={4}>
-              <InputGroup.Text>
-                <InputGroup.Checkbox
-                  name="educational"
-                  value={this.state.educational}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
-                  aria-label="Educational"
-                />
-                Educational
-              </InputGroup.Text>
-            </Col>
-            <Col md={3} xs={4}>
-              <InputGroup.Text>
-                <InputGroup.Checkbox
-                  name="networking"
-                  value={this.state.networking}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
-                />{" "}
-                Finance
-              </InputGroup.Text>
-            </Col>
-            <Col md={3} xs={4}>
-              <InputGroup.Text>
-                <InputGroup.Checkbox
-                  name="finance"
-                  value={this.state.finance}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
-                />{" "}
-                Finance
-              </InputGroup.Text>
-            </Col>
-            <Col md={3} xs={4}>
-              <InputGroup.Text>
-                <InputGroup.Checkbox
-                  name="marketing"
-                  value={this.state.marketing}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
-                />{" "}
-                Marketing
-              </InputGroup.Text>
-            </Col>
-            <Col md={3} xs={4}>
-              <InputGroup.Text>
-                <InputGroup.Checkbox
-                  placeholder="engineering"
-                  name="engineering"
-                  value={this.state.engineering}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
-                />{" "}
-                Engineering
-              </InputGroup.Text>
-            </Col>
-          </Row>
-
-          <button onClick={() => this.onSubmit()}>Create Webinar</button>
-        </Container>
+            <button
+              id={styles.buddy}
+              className="btn btn-primary"
+              onClick={() => this.onSubmit()}
+            >
+              Create Webinar
+            </button>
+          </Container>
+        </div>
       </form>
     );
   }

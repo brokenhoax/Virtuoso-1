@@ -62,23 +62,6 @@ class Presenter extends Component {
     this.setState({ presenterFrequency });
   };
 
-  // INCOMPLETE: Now we need to map those Creator UserIds to the Creators Name...
-
-  // async mapNamesToIDs() {
-  //   let test = Object.keys(this.state.presenterFrequency);
-  //   console.log("Presenter ID: " + test);
-  //   await axios
-  //     .get(
-  //       `https://salty-fortress-9010-virt-b.herokuapp.com/user/get/id/${test}`
-  //     )
-  //     .then((res) => {
-  //       const array = res.data.data;
-  //       const presenterName = "";
-  //       console.log("YooHoo!!!" + array);
-  //       // this.setState({ presenterArray });
-  //     });
-  // }
-
   circleChart = () => {
     var ctx = document.getElementById("chartPresenter").getContext("2d");
 
