@@ -9,7 +9,7 @@ class CreateWebinar extends Component {
         year: '',
         month: '',
         day: '',
-        webinarDuration: '',
+        webinarDuration: 0,
         eventTitle: '',
         eventStart: '',
         eventEnd: '',
@@ -29,7 +29,38 @@ class CreateWebinar extends Component {
     }
 
     onSubmit = e => {
-        console.log(this.state);
+        let newWebinar = {
+            title: this.state.title,
+            description: this.state.description,
+            date: {
+                timezone: this.state.timezone,
+                date: this.state.year + "-" + this.state.month + "-" + this.state.day,
+                duration: this.state.duration,
+                event: {
+                    title: this.state.eventTitle,
+                    start: this.state.eventStart,
+                    end: this.state.eventEnd
+                }
+            },
+            hosts: "Userid Here",
+            mainTopic: this.state.marketing,
+            skillLevel: this.state.skillLevel,
+            video: {
+                url: this.state.videoUrl,
+                title: this.state.videoTitle,
+                description: this.state.videoDescription,
+                viewed_by: ["people"]
+            },
+            tags: {
+                educational: this.state.educational,
+                networking: this.state.networking,
+                finance: this.state.finance,
+                marketing: this.state.marketing,
+                engineering: this.state.engineering
+            },
+            created_by: "User Here"
+        }
+        console.log(newWebinar);
         debugger
     }
 
@@ -45,35 +76,16 @@ class CreateWebinar extends Component {
         this.setState({ [name]: value });
         console.log(this.state.title);
     }
-    handleTopicChange = e => {
-        this.setState({ mainTopic: e.target.value });
-    }
-    handleSkillChange = e => {
-        this.setState({ skillLevel: e.target.value });
-    }
-    handleTimezoneChange = e => {
-        this.setState({ timezone: e.target.value });
-    }
-    handleDayChange = e => {
-        this.setState({ day: e.target.value });
-    }
-    handleMonthChange = e => {
-        this.setState({ month: e.target.value });
-    }
-    handleYearChange = e => {
-        this.setState({ year: e.target.value });
-    }
-
 
 
     render() {
-        let day = ['--', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+        let day = ['--', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
         let dayOptions = day.length > 0 && day.map((num, i) => {
             return (
                 <option key={i} value={num}>{num}</option>
             );
         });
-        let month = ['--', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+        let month = ['--', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
         let monthOptions = month.length > 0 && month.map((num, i) => {
             return (
                 <option key={i} value={num}>{num}</option>
@@ -91,22 +103,45 @@ class CreateWebinar extends Component {
                 <Container>
                     <Row>
                         <Col>
-                            <input name="title" 
-                            placeholder="title" 
-                            value={this.state.title} 
-                            onChange={event => {this.handleInputChange(event)}} />
+                            <input name="title"
+                                placeholder="title"
+                                value={this.state.title}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                         <Col>
-                            <input name="description" 
-                            placeholder="description" 
-                            value={this.state.description} 
-                            onChange={event => {this.handleInputChange(event)}} />
+                            <input name="description"
+                                placeholder="description"
+                                value={this.state.description}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                     </Row>
                     <Row>
-                        <Col size="md">
+                        <Col>
+                            Main Topic:
+                            <select name="mainTopic" value={this.state.mainTopic} onChange={event => { this.handleInputChange(event) }}>
+                                <option value="--">--</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="Python"> Python</option>
+                                <option value="Angular"> Angular</option>
+                                <option value="React"> React</option>
+                                <option value="Node JS"> Node JS</option>
+                                <option value="MongoDB"> MongoDB</option>
+                            </select>
+                        </Col>
+                        <Col>
+                            Skill Level:
+                            <select name="skillLevel" value={this.state.skillLevel} onChange={event => { this.handleInputChange(event) }}>
+                                <option value="--">--</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate"> Intermediate</option>
+                                <option value="Advanced"> Advanced</option>
+                            </select>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md="auto">
                             Timezone:
-                                <select name="timezone" value={this.state.timezone} onChange={event => {this.handleInputChange(event)}}>
+                                <select name="timezone" value={this.state.timezone} onChange={event => { this.handleInputChange(event) }}>
                                 <option value="--">--</option>
                                 <option value="CDT">CDT</option>
                                 <option value="MDT"> MDT</option>
@@ -116,74 +151,106 @@ class CreateWebinar extends Component {
                                 <option value="HDT"> HDT</option>
                             </select>
                         </Col>
-                        <Row>
+                        <Col md="auto">
                             Day:
-                                <select name="day" 
-                                value={this.state.day} 
-                                onChange={event => {this.handleInputChange(event)}}>
+                                <select name="day"
+                                value={this.state.day}
+                                onChange={event => { this.handleInputChange(event) }}>
                                 {dayOptions}
-                                </select>
+                            </select>
                                 Month:
-                                <select name="month" 
-                                value={this.state.month} 
-                                onChange={event => {this.handleInputChange(event)}}>
+                                <select name="month"
+                                value={this.state.month}
+                                onChange={event => { this.handleInputChange(event) }}>
                                 {monthOptions}
-                                </select>
+                            </select>
                                 Year:
-                                <select name="year" 
-                                value={this.state.year} 
-                                onChange={event => {this.handleInputChange(event)}}>
+                                <select name="year"
+                                value={this.state.year}
+                                onChange={event => { this.handleInputChange(event) }}>
                                 {yearOptions}
-                                </select>
-                        </Row>
+                            </select>
+                        </Col>
                     </Row>
-                    <Col>
-                        <input placeholder="webinarDuration" value={this.state.webinarDuration} onChange={e => this.setState({ webinarDuration: e.target.value })} />
-                    </Col>
+                    <Row>
+                        <Col>
+                            <input name="webinarDuration"
+                                placeholder="webinarDuration"
+                                value={this.state.webinarDuration}
+                                onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                        <Col>
+                        <input name="eventTitle"
+                            placeholder="eventTitle"
+                            value={this.state.eventTitle}
+                            onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                        <Col>
+                        <input name="eventStart"
+                            placeholder="eventStart"
+                            value={this.state.eventStart}
+                            onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                        <Col>
+                        <input name="eventEnd"
+                            placeholder="eventEnd"
+                            value={this.state.eventEnd}
+                            onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                    <input name="videoUrl"
+                        placeholder="videoUrl"
+                        value={this.state.videoUrl}
+                        onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                        <Col>
+                    <input name="videoTitle"
+                        placeholder="videoTitle"
+                        value={this.state.videoTitle}
+                        onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                        <Col>
+                    <input name="videoDescription"
+                        placeholder="videoDescription"
+                        value={this.state.videoDescription}
+                        onChange={event => { this.handleInputChange(event) }} />
+                        </Col>
+                    </Row>
 
-                    <input placeholder="eventTitle" value={this.state.eventTitle} onChange={e => this.setState({ eventTitle: e.target.value })} />
-                    <input placeholder="eventStart" value={this.state.eventStart} onChange={e => this.setState({ eventStart: e.target.value })} />
-                    <input placeholder="eventEnd" value={this.state.eventEnd} onChange={e => this.setState({ eventEnd: e.target.value })} />
+                    <Row>
+                        Tags:
+                        <Col md={3} xs={4} >
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox name="educational" value={this.state.educational} onChange={(e) => { this.trueFalseRadio(e) }} aria-label="Educational" />
+                            Educational
+                            </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4} >
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox name="networking" value={this.state.networking} onChange={(e) => { this.trueFalseRadio(e) }} /> Finance
+                            </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4} >
 
-                    <input placeholder="videoUrl" value={this.state.videoUrl} onChange={e => this.setState({ videoUrl: e.target.value })} />
-                    <input placeholder="videoTitle" value={this.state.videoTitle} onChange={e => this.setState({ videoTitle: e.target.value })} />
-                    <input placeholder="videoDescription" value={this.state.videoDescription} onChange={e => this.setState({ videoDescription: e.target.value })} />
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox name="finance" value={this.state.finance} onChange={(e) => { this.trueFalseRadio(e) }} /> Finance
+                            </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4} >
 
-                    <input placeholder="hosts" value={this.state.hosts} onChange={e => this.setState({ hosts: e.target.value })} />
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox name="marketing" value={this.state.marketing} onChange={(e) => { this.trueFalseRadio(e) }} /> Marketing
+                            </InputGroup.Text>
+                        </Col>
+                        <Col md={3} xs={4} >
 
-                    <select value={this.state.mainTopic} onChange={this.handleTopicChange}>
-                        <option value="--">--</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="Python"> Python</option>
-                        <option value="Angular"> Angular</option>
-                        <option value="React"> React</option>
-                        <option value="Node JS"> Node JS</option>
-                        <option value="MongoDB"> MongoDB</option>
-                    </select>
-                    <select value={this.state.skillLevel} onChange={this.handleSkillChange}>
-                        <option value="--">--</option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate"> Intermediate</option>
-                        <option value="Advanced"> Advanced</option>
-                    </select>
-
-                    <Col>
-                        <Row>
-                            <InputGroup.Checkbox name="educational" value={this.state.educational} onChange={(e) => { this.trueFalseRadio(e) }} /> Educational
-                        </Row>
-                        <Row>
-                            <InputGroup.Checkbox name="networking" value={this.state.networking} onChange={(e) => { this.trueFalseRadio(e) }} /> Finance
-                        </Row>
-                        <Row>
-                            <InputGroup.Checkbox name="finance" value={this.state.finance} onChange={(e) => { this.trueFalseRadio(e) }} /> Finance
-                        </Row>
-                        <Row>
-                            <InputGroup.Checkbox name="marketing" value={this.state.marketing} onChange={(e) => { this.trueFalseRadio(e) }} /> Marketing
-                        </Row>
-                        <Row>
-                            <InputGroup.Checkbox placeholder="engineering" name="engineering" value={this.state.engineering} onChange={(e) => { this.trueFalseRadio(e) }} /> Engineering
-                        </Row>
-                    </Col>
+                            <InputGroup.Text>
+                                <InputGroup.Checkbox placeholder="engineering" name="engineering" value={this.state.engineering} onChange={(e) => { this.trueFalseRadio(e) }} /> Engineering
+                            </InputGroup.Text>
+                        </Col>
+                    </Row>
 
                     <button onClick={() => this.onSubmit()}>Create Webinar</button>
                 </Container>
