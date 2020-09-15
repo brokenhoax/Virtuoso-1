@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Container, Row, Col, InputGroup } from 'react-bootstrap'
 
 class CreateWebinar extends Component {
@@ -29,39 +30,48 @@ class CreateWebinar extends Component {
     }
 
     onSubmit = e => {
-        let newWebinar = {
-            title: this.state.title,
+        
+        
+        axios.post("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create", 
+        { title: this.state.title,
             description: this.state.description,
             date: {
                 timezone: this.state.timezone,
                 date: this.state.year + "-" + this.state.month + "-" + this.state.day,
-                duration: this.state.duration,
+                duration: this.state.webinarDuration,
                 event: {
                     title: this.state.eventTitle,
                     start: this.state.eventStart,
                     end: this.state.eventEnd
                 }
             },
-            hosts: "Userid Here",
+            
             mainTopic: this.state.marketing,
             skillLevel: this.state.skillLevel,
-            video: {
-                url: this.state.videoUrl,
-                title: this.state.videoTitle,
-                description: this.state.videoDescription,
-                viewed_by: ["people"]
-            },
-            tags: {
-                educational: this.state.educational,
-                networking: this.state.networking,
-                finance: this.state.finance,
-                marketing: this.state.marketing,
-                engineering: this.state.engineering
-            },
-            created_by: "User Here"
-        }
-        console.log(newWebinar);
-        debugger
+            // video: {
+            //     url: this.state.videoUrl,
+            //     title: this.state.videoTitle,
+            //     description: this.state.videoDescription 
+            // },
+            // tags: {
+            //     educational: this.state.educational,
+            //     networking: this.state.networking,
+            //     finance: this.state.finance,
+            //     marketing: this.state.marketing,
+            //     engineering: this.state.engineering
+            // } 
+            },{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': '*'
+                }
+            })
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+            }).catch((err) => console.log(err.response.request._response));
+
+debugger
     }
 
     trueFalseRadio = (e) => {
@@ -73,7 +83,11 @@ class CreateWebinar extends Component {
     }
     handleInputChange(event) {
         const { target: { name, value } } = event
-        this.setState({ [name]: value });
+        if (name === "webinarDuration") {
+            this.setState({ [name]: parseInt(value) });
+        } else {
+            this.setState({ [name]: value });
+        }
         console.log(this.state.title);
     }
 
@@ -97,6 +111,12 @@ class CreateWebinar extends Component {
                 <option key={i} value={num}>{num}</option>
             );
         });
+        let dur = ['--', 0, 15, 30, 45, 60, 75, 90, 105, 120]
+        let durOptions = dur.length > 0 && dur.map((num, i) => {
+            return (
+                <option key={i} value={num}>{num}</option>
+            )
+        })
 
         return (
             <form>
@@ -174,48 +194,51 @@ class CreateWebinar extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <input name="webinarDuration"
-                                placeholder="webinarDuration"
+                            Duration:
+                            <select name="webinarDuration"
                                 value={this.state.webinarDuration}
+                                onChange={event => { this.handleInputChange(event) }}>
+                                {durOptions}
+                            </select>
+
+                        </Col>
+                        <Col>
+                            <input name="eventTitle"
+                                placeholder="eventTitle"
+                                value={this.state.eventTitle}
                                 onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                         <Col>
-                        <input name="eventTitle"
-                            placeholder="eventTitle"
-                            value={this.state.eventTitle}
-                            onChange={event => { this.handleInputChange(event) }} />
+                            <input name="eventStart"
+                                placeholder="eventStart"
+                                value={this.state.eventStart}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                         <Col>
-                        <input name="eventStart"
-                            placeholder="eventStart"
-                            value={this.state.eventStart}
-                            onChange={event => { this.handleInputChange(event) }} />
-                        </Col>
-                        <Col>
-                        <input name="eventEnd"
-                            placeholder="eventEnd"
-                            value={this.state.eventEnd}
-                            onChange={event => { this.handleInputChange(event) }} />
+                            <input name="eventEnd"
+                                placeholder="eventEnd"
+                                value={this.state.eventEnd}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                    <input name="videoUrl"
-                        placeholder="videoUrl"
-                        value={this.state.videoUrl}
-                        onChange={event => { this.handleInputChange(event) }} />
+                            <input name="videoUrl"
+                                placeholder="videoUrl"
+                                value={this.state.videoUrl}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                         <Col>
-                    <input name="videoTitle"
-                        placeholder="videoTitle"
-                        value={this.state.videoTitle}
-                        onChange={event => { this.handleInputChange(event) }} />
+                            <input name="videoTitle"
+                                placeholder="videoTitle"
+                                value={this.state.videoTitle}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                         <Col>
-                    <input name="videoDescription"
-                        placeholder="videoDescription"
-                        value={this.state.videoDescription}
-                        onChange={event => { this.handleInputChange(event) }} />
+                            <input name="videoDescription"
+                                placeholder="videoDescription"
+                                value={this.state.videoDescription}
+                                onChange={event => { this.handleInputChange(event) }} />
                         </Col>
                     </Row>
 
