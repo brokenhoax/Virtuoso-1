@@ -45,17 +45,22 @@ export const WebinarProvider = ({ children }) => {
     },
   ]);
 
+  // console.log(`Current value of Webinar State: ${JSON.stringify(webinars)}`);
+
   useEffect((webinars) => {
     axios
       .get("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/get/all")
       .then((res) => {
         const results = res.data.data;
+        // console.log(`Results of Axios Call: ${JSON.stringify(results)}`);
         setWebinars(results);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  // console.log(`Updated value of Webinar State: ${JSON.stringify(webinars)}`);
 
   return (
     <WebinarContext.Provider value={webinars}>
