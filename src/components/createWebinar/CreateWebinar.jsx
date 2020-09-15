@@ -28,12 +28,22 @@ class CreateWebinar extends Component {
         created_by: {}
 
     }
-
+    postNewWebinar = async (data) => {
+        try{
+            const res = await axios.post('https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create',
+             data,
+            {headers: {
+                        'Content-Type': 'application/json'
+                    }});
+            console.log(res.data);
+        }catch (err) {
+            console.log(err);
+        }
+    };
     onSubmit = e => {
-        
-        
-        axios.post("https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create", 
-        { title: this.state.title,
+        e.preventDefault();
+        let data = {
+            title: this.state.title,
             description: this.state.description,
             date: {
                 timezone: this.state.timezone,
@@ -45,33 +55,36 @@ class CreateWebinar extends Component {
                     end: this.state.eventEnd
                 }
             },
-            
-            mainTopic: this.state.marketing,
-            skillLevel: this.state.skillLevel,
-            // video: {
-            //     url: this.state.videoUrl,
-            //     title: this.state.videoTitle,
-            //     description: this.state.videoDescription 
-            // },
-            // tags: {
-            //     educational: this.state.educational,
-            //     networking: this.state.networking,
-            //     finance: this.state.finance,
-            //     marketing: this.state.marketing,
-            //     engineering: this.state.engineering
-            // } 
-            },{
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': '*'
-                }
-            })
-            .then((res) => {
-                console.log(res);
-                console.log(res.data);
-            }).catch((err) => console.log(err.response.request._response));
 
-debugger
+            mainTopic: this.state.mainTopic,
+            skillLevel: this.state.skillLevel,
+            video: {
+                url: this.state.videoUrl,
+                title: this.state.videoTitle,
+                description: this.state.videoDescription
+            },
+            tags: {
+                educational: this.state.educational,
+                networking: this.state.networking,
+                finance: this.state.finance,
+                marketing: this.state.marketing,
+                engineering: this.state.engineering
+            }
+        }
+        this.postNewWebinar(data);
+
+        // axios({
+        //     method: 'POST',
+        //     url:"https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create",
+        //     data: data,
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Authorization': '*'
+        //     }
+        // }).then((res) => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //     }).catch((err) => console.log(err.response.request._response));
     }
 
     trueFalseRadio = (e) => {
@@ -88,7 +101,6 @@ debugger
         } else {
             this.setState({ [name]: value });
         }
-        console.log(this.state.title);
     }
 
 
@@ -275,7 +287,7 @@ debugger
                         </Col>
                     </Row>
 
-                    <button onClick={() => this.onSubmit()}>Create Webinar</button>
+                    <button onClick={(e) => this.onSubmit(e)}>Create Webinar</button>
                 </Container>
             </form>
         )
