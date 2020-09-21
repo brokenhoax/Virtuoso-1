@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, InputGroup } from "react-bootstrap";
 import styles from "./CreateWebinar.module.css";
+import "../../App.css";
 import axios from "axios";
 
 class CreateWebinar extends Component {
@@ -120,9 +121,9 @@ class CreateWebinar extends Component {
 
 
     return (
-      <form>
+      <form className="main"> 
         <div>
-          <Container className={styles.createContainer}>
+          <div className={styles.createContainer}>
             <div className={styles.header}>Create Your Webinar</div>
             <div>
               <section className={styles.title}>
@@ -416,7 +417,7 @@ class CreateWebinar extends Component {
             >
               Create Webinar
             </button>
-          </Container>
+          </div>
         </div>
       </form>
     );

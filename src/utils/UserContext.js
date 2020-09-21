@@ -15,11 +15,11 @@ export const UserProvider = ({ children }) => {
       registered: [],
       completedVideo: [],
       passedQuiz: [],
-      _id: "5f5eab5db441a11880065897",
+      _id: "5f5eab5cb441a11880065891",
       firstname: "",
       lastname: "",
-      email: "sasha@testmail.com",
-      password: "testingupdate",
+      email: "andrew-was-here@testmail.com",
+      password: "password",
       role: "",
       userCreated: ""
     }

@@ -10,3 +10,10 @@
   background-color: #000839;
   color: white;
 }
+
+.main {
+  display: grid;
+  grid-area: main;
+  height: 100%;
+
+}
