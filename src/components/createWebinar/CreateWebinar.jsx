@@ -1,137 +1,206 @@
-
 import React, { Component } from "react";
-import { Container, Row, Col, InputGroup } from "react-bootstrap";
 import styles from "./CreateWebinar.module.css";
 import "../../App.css";
 import axios from "axios";
 
 class CreateWebinar extends Component {
-    state = {
-        title: "",
-        description: "",
-        timezone: "",
-        year: "",
-        month: "",
-        day: "",
-        webinarDuration: 0,
-        eventTitle: "",
-        eventStart: "",
-        eventEnd: "",
-        hosts: [],
-        mainTopic: "Topic",
-        skillLevel: "",
-        videoUrl: "",
-        videoTitle: "",
-        videoDescription: "",
-        educational: false,
-        networking: false,
-        finance: false,
-        marketing: false,
-        engineering: false,
-        created_by: {},
+  state = {
+    title: "",
+    description: "",
+    timezone: "",
+    year: "",
+    month: "",
+    day: "",
+    webinarDuration: 0,
+    eventTitle: "",
+    eventStart: "",
+    eventEnd: "",
+    hosts: [],
+    mainTopic: "Topic",
+    skillLevel: "",
+    videoUrl: "",
+    videoTitle: "",
+    videoDescription: "",
+    educational: false,
+    networking: false,
+    finance: false,
+    marketing: false,
+    engineering: false,
+    created_by: {},
+  };
+  postNewWebinar = async (data) => {
+    try {
+      const res = await axios.post(
+        "https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  onSubmit = (e) => {
+    e.preventDefault();
+    let data = {
+      title: this.state.title,
+      description: this.state.description,
+      date: {
+        timezone: this.state.timezone,
+        date: this.state.year + "-" + this.state.month + "-" + this.state.day,
+        duration: this.state.webinarDuration,
+        event: {
+          title: this.state.eventTitle,
+          start: this.state.eventStart,
+          end: this.state.eventEnd,
+        },
+      },
+
+      mainTopic: this.state.mainTopic,
+      skillLevel: this.state.skillLevel,
+      video: {
+        url: this.state.videoUrl,
+        title: this.state.videoTitle,
+        description: this.state.videoDescription,
+      },
+      tags: {
+        educational: this.state.educational,
+        networking: this.state.networking,
+        finance: this.state.finance,
+        marketing: this.state.marketing,
+        engineering: this.state.engineering,
+      },
     };
-    postNewWebinar = async (data) => {
-        try {
-            const res = await axios.post('https://salty-fortress-9010-virt-b.herokuapp.com/webinar/create',
-                data,
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-            console.log(res.data);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-    onSubmit = e => {
-        e.preventDefault();
-        let data = {
-            title: this.state.title,
-            description: this.state.description,
-            date: {
-                timezone: this.state.timezone,
-                date: this.state.year + "-" + this.state.month + "-" + this.state.day,
-                duration: this.state.webinarDuration,
-                event: {
-                    title: this.state.eventTitle,
-                    start: this.state.eventStart,
-                    end: this.state.eventEnd
-                }
-            },
+    this.postNewWebinar(data);
+  };
+  trueFalseRadio = (e) => {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
 
-            mainTopic: this.state.mainTopic,
-            skillLevel: this.state.skillLevel,
-            video: {
-                url: this.state.videoUrl,
-                title: this.state.videoTitle,
-                description: this.state.videoDescription
-            },
-            tags: {
-                educational: this.state.educational,
-                networking: this.state.networking,
-                finance: this.state.finance,
-                marketing: this.state.marketing,
-                engineering: this.state.engineering
-            }
-        }
-        this.postNewWebinar(data);
+    this.setState({ [name]: value });
+  };
+  handleInputChange(event) {
+    const {
+      target: { name, value },
+    } = event;
+    if (name === "webinarDuration") {
+      this.setState({ [name]: parseInt(value) });
+    } else {
+      this.setState({ [name]: value });
     }
-    trueFalseRadio = (e) => {
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+  }
 
-        this.setState({ [name]: value });
-    }
-    handleInputChange(event) {
-        const { target: { name, value } } = event
-        if (name === "webinarDuration") {
-            this.setState({ [name]: parseInt(value) });
-        } else {
-            this.setState({ [name]: value });
-        }
-    }
-
-    render() {
-        let day = ['--', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
-        let dayOptions = day.length > 0 && day.map((num, i) => {
-            return (
-                <option key={i} value={num}>{num}</option>
-            );
-        });
-        let month = ['--', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-        let monthOptions = month.length > 0 && month.map((num, i) => {
-            return (
-                <option key={i} value={num}>{num}</option>
-            );
-        });
-        let year = ['--', '2020', '2021', '2022', '2023', '2024'];
-        let yearOptions = year.length > 0 && year.map((num, i) => {
-            return (
-                <option key={i} value={num}>{num}</option>
-            );
-        });
-        let dur = [0, 15, 30, 45, 60, 75, 90, 105, 120]
-        let durOptions = dur.length > 0 && dur.map((num, i) => {
-            return (
-                <option key={i} value={num}>{num}</option>
-            )
-        })
-
+  render() {
+    let day = [
+      "--",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+    ];
+    let dayOptions =
+      day.length > 0 &&
+      day.map((num, i) => {
+        return (
+          <option key={i} value={num}>
+            {num}
+          </option>
+        );
+      });
+    let month = [
+      "--",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+    ];
+    let monthOptions =
+      month.length > 0 &&
+      month.map((num, i) => {
+        return (
+          <option key={i} value={num}>
+            {num}
+          </option>
+        );
+      });
+    let year = ["--", "2020", "2021", "2022", "2023", "2024"];
+    let yearOptions =
+      year.length > 0 &&
+      year.map((num, i) => {
+        return (
+          <option key={i} value={num}>
+            {num}
+          </option>
+        );
+      });
+    let dur = [0, 15, 30, 45, 60, 75, 90, 105, 120];
+    let durOptions =
+      dur.length > 0 &&
+      dur.map((num, i) => {
+        return (
+          <option key={i} value={num}>
+            {num}
+          </option>
+        );
+      });
 
     return (
-      <form className="main"> 
-        <div>
-          <div className={styles.createContainer}>
-            <div className={styles.header}>Create Your Webinar</div>
+      <form className="main">
+        <div className={styles.createContainer}>
+          <div className={styles.header}>Create Your Webinar</div>
+          <div className={styles.textBoxes}>
             <div>
-              <section className={styles.title}>
-                Title:
+              <div className={`${styles.label} ${styles.test}`}>
+                * Indicates Required Field
+              </div>
+              <label className={styles.important} for="title">
+                Title
+              </label>
+              <section>
                 <input
-                  className={styles.inputFieldLeft}
                   name="title"
-                  placeholder="title"
+                  className={styles.textBox}
+                  id={styles.title}
                   value={this.state.title}
                   onChange={(event) => {
                     this.handleInputChange(event);
@@ -140,12 +209,14 @@ class CreateWebinar extends Component {
               </section>
             </div>
             <div>
+              <label className={styles.important} for="description">
+                Description
+              </label>
               <section className={styles.description}>
-                Description:
                 <input
-                  className={styles.inputFieldLeft}
                   name="description"
-                  placeholder="description"
+                  className={styles.textBox}
+                  id={styles.description}
                   value={this.state.description}
                   onChange={(event) => {
                     this.handleInputChange(event);
@@ -154,120 +225,14 @@ class CreateWebinar extends Component {
               </section>
             </div>
             <div>
-              <section className={styles.mainTopic}>
-                Main Topic:
-                <select
-                  className={styles.inputFieldLeft}
-                  name="mainTopic"
-                  value={this.state.mainTopic}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
-                >
-                  <option value="--">--</option>
-                  <option value="JavaScript">JavaScript</option>
-                  <option value="Python"> Python</option>
-                  <option value="Angular"> Angular</option>
-                  <option value="React"> React</option>
-                  <option value="Node JS"> Node JS</option>
-                  <option value="MongoDB"> MongoDB</option>
-                </select>
-              </section>
-              <section className={styles.skillLevel}>
-                Skill Level:
-                <select
-                  className={styles.inputFieldLeft}
-                  name="skillLevel"
-                  value={this.state.skillLevel}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
-                >
-                  <option value="--">--</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Intermediate"> Intermediate</option>
-                  <option value="Advanced"> Advanced</option>
-                </select>
-              </section>
-            </div>
-            <div>
-              <section className={styles.day}>
-                <div className={styles.dayDrop}> Day:</div>
-                <select
-                  className={styles.dayDrop}
-                  name="day"
-                  value={this.state.day}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
-                >
-                  {dayOptions}
-                </select>
-                <div className={styles.dayDrop}> Month:</div>
-                <select
-                  className={styles.inputFieldLeft}
-                  name="month"
-                  value={this.state.month}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
-                >
-                  {monthOptions}
-                </select>
-                <div className={styles.dayDrop}> Year:</div>
-                <select
-                  className={styles.inputFieldLeft}
-                  name="year"
-                  value={this.state.year}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
-                >
-                  {yearOptions}
-                </select>
-              </section>
-              <section className={styles.timeZone}>
-                Timezone:
-                <select
-                  className={styles.inputRight}
-                  name="timezone"
-                  value={this.state.timezone}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
-                >
-                  <option value="--">--</option>
-                  <option value="CDT">CDT</option>
-                  <option value="MDT"> MDT</option>
-                  <option value="MST"> MST</option>
-                  <option value="PDT"> PDT</option>
-                  <option value="AKDT"> AKDT</option>
-                  <option value="HDT"> HDT</option>
-                </select>
-              </section>
-            </div>
-            <div>
-              <section className={styles.duration}>
-                Duration (In Minutes):
-                <select
-                  className={styles.inputRight}
-                  name="webinarDuration"
-                  placeholder="webinarDuration"
-                  value={this.state.webinarDuration}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}>
-                      {durOptions}
-                </select>
-              </section>
-            </div>
-            <div>
+              <label className={styles.important} for="Short Title">
+                Short Title
+              </label>
               <section className={styles.eventTitle}>
-                Event Title:
                 <input
-                  className={styles.inputRight}
                   name="eventTitle"
-                  placeholder="eventTitle"
+                  className={styles.textBox}
+                  id={styles.eventTitle}
                   value={this.state.eventTitle}
                   onChange={(event) => {
                     this.handleInputChange(event);
@@ -276,12 +241,14 @@ class CreateWebinar extends Component {
               </section>
             </div>
             <div>
+              <label className={styles.important} for="eventStart">
+                Event Start
+              </label>
               <section className={styles.eventStart}>
-                Event Start Time:
                 <input
-                  className={styles.inputRight}
                   name="eventStart"
-                  placeholder="eventStart"
+                  className={styles.textBox}
+                  id={styles.eventStart}
                   value={this.state.eventStart}
                   onChange={(event) => {
                     this.handleInputChange(event);
@@ -290,12 +257,14 @@ class CreateWebinar extends Component {
               </section>
             </div>
             <div>
+              <label className={styles.important} for="eventEnd">
+                Event End
+              </label>
               <section className={styles.eventEnd}>
-                Event End Time:
                 <input
-                  className={styles.inputRight}
                   name="eventEnd"
-                  placeholder="eventEnd"
+                  className={styles.textBox}
+                  id={styles.eventEnd}
                   value={this.state.eventEnd}
                   onChange={(event) => {
                     this.handleInputChange(event);
@@ -303,120 +272,266 @@ class CreateWebinar extends Component {
                 />
               </section>
             </div>
+            <label className={styles.important} for="videoURL">
+              Video URL
+            </label>
             <section className={styles.videoURL}>
-              Video URL:
               <input
-                className={styles.inputRight}
                 name="videoUrl"
-                placeholder="videoUrl"
+                className={styles.textBox}
+                id={styles.videoURL}
                 value={this.state.videoUrl}
                 onChange={(event) => {
                   this.handleInputChange(event);
                 }}
               />
             </section>
+            <label class={styles.important} for="videoTitle">
+              Video Title
+            </label>
             <section className={styles.videoTitle}>
-              Video Title:
               <input
-                className={styles.inputRight}
                 name="videoTitle"
-                placeholder="videoTitle"
+                className={styles.textBox}
+                id={styles.videoTitle}
                 value={this.state.videoTitle}
                 onChange={(event) => {
                   this.handleInputChange(event);
                 }}
               />
             </section>
+            <label className={styles.important} for="videoDescription">
+              Video Description
+            </label>
             <section className={styles.videoDescription}>
-              Video Description:
               <input
-                className={styles.inputRight}
                 name="videoDescription"
-                placeholder="videoDescription"
+                className={styles.textBox}
+                id={styles.videoDescription}
                 value={this.state.videoDescription}
                 onChange={(event) => {
                   this.handleInputChange(event);
                 }}
               />
             </section>
-            <div className={styles.tags}>
-              Tags:
-              <section>
-                <InputGroup.Text>
-                  <InputGroup.Checkbox
-                    className={styles.educational}
-                    name="educational"
-                    value={this.state.educational}
-                    onChange={(e) => {
-                      this.trueFalseRadio(e);
+            <div className={styles.dropDowns}>
+              <div>
+                <label className={styles.important} for="mainTopic">
+                  Main Topic
+                </label>
+                <section className={styles.mainTopic}>
+                  <select
+                    name="mainTopic"
+                    className={styles.dropDown}
+                    id={styles.mainTopic}
+                    value={this.state.mainTopic}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
                     }}
-                    aria-label="Educational"
-                  />
-                  Educational
-                </InputGroup.Text>
-              </section>
-              <section>
-                <InputGroup.Text>
-                  <InputGroup.Checkbox
-                    className={styles.networking}
-                    name="networking"
-                    value={this.state.networking}
-                    onChange={(e) => {
-                      this.trueFalseRadio(e);
+                  >
+                    <option value="--">--</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python"> Python</option>
+                    <option value="Angular"> Angular</option>
+                    <option value="React"> React</option>
+                    <option value="Node JS"> Node JS</option>
+                    <option value="MongoDB"> MongoDB</option>
+                  </select>
+                </section>
+              </div>
+              <div>
+                <label className={styles.important} for="skillLevel">
+                  Skill Level
+                </label>
+                <section className={styles.skillLevel}>
+                  <select
+                    name="skillLevel"
+                    className={styles.dropDown}
+                    id={styles.skillLevel}
+                    value={this.state.skillLevel}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
                     }}
-                  />{" "}
-                  Finance
-                </InputGroup.Text>
-              </section>
-              <section>
-                <InputGroup.Text>
-                  <InputGroup.Checkbox
-                    className={styles.finance}
-                    name="finance"
-                    value={this.state.finance}
-                    onChange={(e) => {
-                      this.trueFalseRadio(e);
+                  >
+                    <option value="--">--</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate"> Intermediate</option>
+                    <option value="Advanced"> Advanced</option>
+                  </select>
+                </section>
+              </div>
+              <div>
+                <label className={styles.important} for="day">
+                  Day
+                </label>
+                <section className={styles.day}>
+                  <select
+                    name="day"
+                    className={styles.dropDown}
+                    id={styles.day}
+                    value={this.state.day}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
                     }}
-                  />{" "}
-                  Finance
-                </InputGroup.Text>
-              </section>
-              <section>
-                <InputGroup.Text>
-                  <InputGroup.Checkbox
-                    className={styles.marketing}
-                    name="marketing"
-                    value={this.state.marketing}
-                    onChange={(e) => {
-                      this.trueFalseRadio(e);
+                  >
+                    {dayOptions}
+                  </select>
+                </section>
+              </div>
+              <div>
+                <label className={styles.important} for="month">
+                  Month
+                </label>
+                <section className={styles.day}>
+                  <select
+                    name="month"
+                    className={styles.dropDown}
+                    id={styles.month}
+                    value={this.state.month}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
                     }}
-                  />{" "}
-                  Marketing
-                </InputGroup.Text>
-              </section>
-              <section>
-                <InputGroup.Text>
-                  <InputGroup.Checkbox
-                    className={styles.engineer}
-                    placeholder="engineering"
-                    name="engineering"
-                    value={this.state.engineering}
-                    onChange={(e) => {
-                      this.trueFalseRadio(e);
+                  >
+                    {monthOptions}
+                  </select>
+                </section>
+              </div>
+              <div>
+                <label className={styles.important} for="year">
+                  Year
+                </label>
+                <section className={styles.day}>
+                  <select
+                    name="year"
+                    className={styles.dropDown}
+                    id={styles.year}
+                    value={this.state.year}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
                     }}
-                  />{" "}
-                  Engineering
-                </InputGroup.Text>
-              </section>
+                  >
+                    {yearOptions}
+                  </select>
+                </section>
+              </div>
+              <div>
+                <label className={styles.important} for="timeZone">
+                  Time Zone
+                </label>
+                <section className={styles.timeZone}>
+                  <select
+                    name="timezone"
+                    className={styles.dropDown}
+                    id={styles.timeZone}
+                    value={this.state.timezone}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
+                    }}
+                  >
+                    <option value="--">--</option>
+                    <option value="CDT">CDT</option>
+                    <option value="MDT"> MDT</option>
+                    <option value="MST"> MST</option>
+                    <option value="PDT"> PDT</option>
+                    <option value="AKDT"> AKDT</option>
+                    <option value="HDT"> HDT</option>
+                  </select>
+                </section>
+              </div>
+              <div>
+                <label className={styles.important} for="webinarDuration">
+                  Duration (In Minutes)
+                </label>
+                <section className={styles.duration}>
+                  <select
+                    name="webinarDuration"
+                    className={styles.dropDown}
+                    id={styles.webinarDuration}
+                    value={this.state.webinarDuration}
+                    onChange={(event) => {
+                      this.handleInputChange(event);
+                    }}
+                  >
+                    {durOptions}
+                  </select>
+                </section>
+              </div>
             </div>
-
-            <button
-              id={styles.buddy}
-              className="btn btn-primary"
-              onClick={() => this.onSubmit()}
-            >
-              Create Webinar
-            </button>
+            <div className={styles.tagHeader} for="webinarDuration">
+              Tags
+            </div>
+            <div className={styles.tagContainer}>
+              <label className={styles.checkBox}>
+                Introduction
+                <input
+                  type="checkbox"
+                  name="introduction"
+                  value={this.state.introduction}
+                  className={styles.tag}
+                  onChange={(e) => {
+                    this.trueFalseRadio(e);
+                  }}
+                />
+                <span className={styles.checkmark}></span>
+              </label>
+              <label className={styles.checkBox}>
+                Lecture
+                <input
+                  type="checkbox"
+                  name="lecture"
+                  value={this.state.lecture}
+                  className={styles.tag}
+                  onChange={(e) => {
+                    this.trueFalseRadio(e);
+                  }}
+                />
+                <span className={styles.checkmark}></span>
+              </label>
+              <label className={styles.checkBox}>
+                Lab
+                <input
+                  type="checkbox"
+                  name="lab"
+                  value={this.state.lab}
+                  className={styles.tag}
+                  onChange={(e) => {
+                    this.trueFalseRadio(e);
+                  }}
+                />
+                <span className={styles.checkmark}></span>
+              </label>
+              <label className={styles.checkBox}>
+                Review
+                <input
+                  type="checkbox"
+                  name="review"
+                  value={this.state.review}
+                  className={styles.tag}
+                  onChange={(e) => {
+                    this.trueFalseRadio(e);
+                  }}
+                />
+                <span className={styles.checkmark}></span>
+              </label>
+              <label className={styles.checkBox}>
+                Bonus
+                <input
+                  type="checkbox"
+                  name="bonus"
+                  value={this.state.bonus}
+                  className={styles.tag}
+                  onChange={(e) => {
+                    this.trueFalseRadio(e);
+                  }}
+                />
+                <span className={styles.checkmark}></span>
+              </label>
+            </div>
+            <div className={styles.buddy}>
+              <button className={styles.myBud} onClick={() => this.onSubmit()}>
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </form>
