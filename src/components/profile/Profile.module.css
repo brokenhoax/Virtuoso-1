@@ -1,98 +1,82 @@
-.profileContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font: #3e4754;
-  list-style-type: none;
-  background-color: #e4e1ec;
-  margin-left: 20%;
-  margin-right: 20%;
-}
-
-.profileHeader {
-  color: #005082;
-  text-align: center;
-  padding-top: 2rem;
-  font-size: 4rem;
-}
-.userPic {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  width: 15rem;
-  padding: 2rem;
-}
-
-.userImage {
-  display: flex;
-  justify-content: center;
-}
+/* // USER PRE-LOG-IN SCREEN // */
 
 .profileWrapper {
   display: flex;
   flex-direction: column;
-}
-
-.userCard {
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: #e4e1ec;
   color: #005082;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+  height: 100%;
 }
 
-.profileSection {
-  display: flex;
+.profileHeader {
+  margin-bottom: 4rem;
+  font-weight: bold;
 }
 
 .profileKey {
   display: flex;
-  color: #005082;
-  margin: 1rem;
-  margin-left: 35%;
+  justify-content: center;
+  flex-grow: 1;
+  margin-bottom: 2rem;
 }
 
 .profileValue {
   display: flex;
-  color: #3e4754;
-  margin: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.buttons {
+.profileButton {
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
 }
 
-.update {
-  margin: 1rem;
+.inputField {
+  width: 30rem;
+  border-style: none;
+}
+
+.myBuds {
+  display: flex;
+  justify-content: center;
+}
+
+.myBud {
   border: none;
-  border-radius: 10px;
-  color: #005082;
-}
-
-.signOut {
-  margin: 1rem;
-  border: none;
-  border-radius: 10px;
-  color: #005082;
-}
-
-.update:hover {
-  background-color: #ffbd69;
+  border-radius: 0.3rem;
+  font-size: 1.5rem;
+  background-color: #005082;
   color: white;
-  border: none;
+  margin: 1rem;
+  margin-top: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.signOut:hover {
-  background-color: #a664e3;
-  color: white;
-  border: none;
+/* // USER POST-LOG-IN SCREEN // */
+
+.profileContainer {
+  height: 100%;
 }
 
-button:focus {
-  outline: none;
+.profileSection {
+  display: flex;
+  width: 40rem;
+  margin: 2rem;
+}
+
+.loggedKey {
+  width: 100%;
+}
+
+.logged.Value {
+  width: 100%;
+}
+
+.userPic {
+  width: 10rem;
 }

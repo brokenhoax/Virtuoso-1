@@ -203,7 +203,7 @@ label.important:after {
   font-size: 2rem;
   background-color: #005082;
   color: white;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 }
@@ -222,7 +222,7 @@ label.important:after {
   flex-direction: row;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1100px) {
   .createContainer {
     margin: 0;
   }
