@@ -10,6 +10,7 @@
   background-color: #e4e1ec;
   color: #005082;
   height: 100%;
+  min-width: 26em;
 }
 
 .profileHeader {
@@ -17,17 +18,28 @@
   font-weight: bold;
 }
 
+.profileSection {
+  width: 30%;
+}
+
 .profileKey {
   display: flex;
   justify-content: center;
   flex-grow: 1;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .profileValue {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  width: 100%;
+}
+
+.inputField {
+  border-style: none;
+  min-width: 20rem;
 }
 
 .profileButton {
@@ -35,48 +47,18 @@
   justify-content: center;
 }
 
-.inputField {
-  width: 30rem;
-  border-style: none;
-}
-
-.myBuds {
-  display: flex;
-  justify-content: center;
-}
-
 .myBud {
+  display: block;
   border: none;
   border-radius: 0.3rem;
   font-size: 1.5rem;
   background-color: #005082;
   color: white;
-  margin: 1rem;
   margin-top: 4rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
-/* // USER POST-LOG-IN SCREEN // */
-
-.profileContainer {
-  height: 100%;
-}
-
-.profileSection {
-  display: flex;
-  width: 40rem;
-  margin: 2rem;
-}
-
-.loggedKey {
-  width: 100%;
-}
-
-.logged.Value {
-  width: 100%;
-}
-
-.userPic {
-  width: 10rem;
+@media only screen and (max-width: 700px) {
+  .profileWrapper {
+    margin: 0;
+  }
 }

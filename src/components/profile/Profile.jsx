@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
-import styles from "./Profile.module.css";
+import styles from "./SignedIn.module.css";
+import selyts from "./SignedOut.module.css";
 import "../../App.css";
 import axios from "axios";
 
@@ -112,16 +113,16 @@ const Profile = () => {
     });
   };
 
-  if (user.logged) {
+  if (!user.logged) {
     return (
-      <div className={styles.main}>
-        <div className={styles.profileWrapper}>
-          <h1 className={styles.profileHeader}>Welcome!</h1>
-          <div className={styles.profileSection}>
-            <div className={styles.profileKey}>
+      <div className={selyts.main}>
+        <div className={selyts.profileWrapper}>
+          <h1 className={selyts.profileHeader}>Welcome!</h1>
+          <div className={selyts.profileSection}>
+            <div className={selyts.profileKey}>
               <input
                 name="email"
-                className={styles.inputField}
+                className={selyts.inputField}
                 placeholder=" Email"
                 autoComplete="off"
                 value={user.userdata.email}
@@ -130,11 +131,11 @@ const Profile = () => {
                 }}
               />
             </div>
-            <div className={styles.profileValue}>
+            <div className={selyts.profileValue}>
               <input
                 name="password"
                 type="password"
-                className={styles.inputField}
+                className={selyts.inputField}
                 placeholder=" Password"
                 autoComplete="off"
                 value={user.userdata.password}
@@ -143,9 +144,9 @@ const Profile = () => {
                 }}
               />
             </div>
-            <div className={styles.profileButton}>
+            <div className={selyts.profileButton}>
               <button
-                className={styles.myBud}
+                className={selyts.myBud}
                 onClick={(e) => onSubmitLogin(e)}
               >
                 Log In
@@ -155,7 +156,7 @@ const Profile = () => {
         </div>
       </div>
     );
-  } else if (!user.logged) {
+  } else if (user.logged) {
     return (
       <div className={styles.main}>
         <div className={styles.profileContainer}>
