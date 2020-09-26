@@ -3,6 +3,9 @@ import styles from "./CreateWebinar.module.css";
 import "../../App.css";
 import axios from "axios";
 
+// Forms Video on YouTube:
+// https://www.youtube.com/watch?v=7Vo_VCcWupQ
+
 class CreateWebinar extends Component {
   state = {
     title: "",
@@ -21,11 +24,11 @@ class CreateWebinar extends Component {
     videoUrl: "",
     videoTitle: "",
     videoDescription: "",
-    educational: false,
-    networking: false,
-    finance: false,
-    marketing: false,
-    engineering: false,
+    introduction: false,
+    lecture: false,
+    lab: false,
+    review: false,
+    bonus: false,
     created_by: {},
   };
   postNewWebinar = async (data) => {
@@ -68,15 +71,16 @@ class CreateWebinar extends Component {
         description: this.state.videoDescription,
       },
       tags: {
-        educational: this.state.educational,
-        networking: this.state.networking,
-        finance: this.state.finance,
-        marketing: this.state.marketing,
-        engineering: this.state.engineering,
+        introduction: this.state.introduction,
+        lecture: this.state.lecture,
+        lab: this.state.lab,
+        review: this.state.review,
+        bonus: this.state.bonus,
       },
     };
     this.postNewWebinar(data);
   };
+
   trueFalseRadio = (e) => {
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -84,7 +88,8 @@ class CreateWebinar extends Component {
 
     this.setState({ [name]: value });
   };
-  handleInputChange(event) {
+
+  handleInputChange = (event) => {
     const {
       target: { name, value },
     } = event;
@@ -93,7 +98,7 @@ class CreateWebinar extends Component {
     } else {
       this.setState({ [name]: value });
     }
-  }
+  };
 
   render() {
     let day = [
@@ -193,141 +198,105 @@ class CreateWebinar extends Component {
               <div className={`${styles.label} ${styles.test}`}>
                 * Indicates Required Field
               </div>
-              <label className={styles.important} for="title">
-                Title
-              </label>
+              <label className={styles.important}>Title</label>
               <section>
                 <input
                   name="title"
                   className={styles.textBox}
                   id={styles.title}
                   value={this.state.title}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
+                  onChange={this.handleInputChange}
                 />
               </section>
             </div>
             <div>
-              <label className={styles.important} for="description">
-                Description
-              </label>
+              <label className={styles.important}>Description</label>
               <section className={styles.description}>
                 <input
                   name="description"
                   className={styles.textBox}
                   id={styles.description}
                   value={this.state.description}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
+                  onChange={this.handleInputChange}
                 />
               </section>
             </div>
             <div>
-              <label className={styles.important} for="Short Title">
-                Short Title
-              </label>
+              <label className={styles.important}>Short Title</label>
               <section className={styles.eventTitle}>
                 <input
                   name="eventTitle"
                   className={styles.textBox}
                   id={styles.eventTitle}
                   value={this.state.eventTitle}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
+                  onChange={this.handleInputChange}
                 />
               </section>
             </div>
             <div>
-              <label className={styles.important} for="eventStart">
-                Event Start
-              </label>
+              <label className={styles.important}>Event Start</label>
               <section className={styles.eventStart}>
                 <input
                   name="eventStart"
                   className={styles.textBox}
                   id={styles.eventStart}
                   value={this.state.eventStart}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
+                  onChange={this.handleInputChange}
                 />
               </section>
             </div>
             <div>
-              <label className={styles.important} for="eventEnd">
-                Event End
-              </label>
+              <label className={styles.important}>Event End</label>
               <section className={styles.eventEnd}>
                 <input
                   name="eventEnd"
                   className={styles.textBox}
                   id={styles.eventEnd}
                   value={this.state.eventEnd}
-                  onChange={(event) => {
-                    this.handleInputChange(event);
-                  }}
+                  onChange={this.handleInputChange}
                 />
               </section>
             </div>
-            <label className={styles.important} for="videoURL">
-              Video URL
-            </label>
+            <label className={styles.important}>Video URL</label>
             <section className={styles.videoURL}>
               <input
                 name="videoUrl"
                 className={styles.textBox}
                 id={styles.videoURL}
                 value={this.state.videoUrl}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
+                onChange={this.handleInputChange}
               />
             </section>
-            <label class={styles.important} for="videoTitle">
-              Video Title
-            </label>
+            <label className={styles.important}>Video Title</label>
             <section className={styles.videoTitle}>
               <input
                 name="videoTitle"
                 className={styles.textBox}
                 id={styles.videoTitle}
                 value={this.state.videoTitle}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
+                onChange={this.handleInputChange}
               />
             </section>
-            <label className={styles.important} for="videoDescription">
-              Video Description
-            </label>
+            <label className={styles.important}>Video Description</label>
             <section className={styles.videoDescription}>
               <input
                 name="videoDescription"
                 className={styles.textBox}
                 id={styles.videoDescription}
                 value={this.state.videoDescription}
-                onChange={(event) => {
-                  this.handleInputChange(event);
-                }}
+                onChange={this.handleInputChange}
               />
             </section>
             <div className={styles.dropDowns}>
               <div>
-                <label className={styles.important} for="mainTopic">
-                  Main Topic
-                </label>
+                <label className={styles.important}>Main Topic</label>
                 <section className={styles.mainTopic}>
                   <select
                     name="mainTopic"
                     className={styles.dropDown}
                     id={styles.mainTopic}
                     value={this.state.mainTopic}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     <option value="--">--</option>
                     <option value="JavaScript">JavaScript</option>
@@ -340,18 +309,14 @@ class CreateWebinar extends Component {
                 </section>
               </div>
               <div>
-                <label className={styles.important} for="skillLevel">
-                  Skill Level
-                </label>
+                <label className={styles.important}>Skill Level</label>
                 <section className={styles.skillLevel}>
                   <select
                     name="skillLevel"
                     className={styles.dropDown}
                     id={styles.skillLevel}
                     value={this.state.skillLevel}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     <option value="--">--</option>
                     <option value="Beginner">Beginner</option>
@@ -361,72 +326,56 @@ class CreateWebinar extends Component {
                 </section>
               </div>
               <div>
-                <label className={styles.important} for="day">
-                  Day
-                </label>
+                <label className={styles.important}>Day</label>
                 <section className={styles.day}>
                   <select
                     name="day"
                     className={styles.dropDown}
                     id={styles.day}
                     value={this.state.day}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     {dayOptions}
                   </select>
                 </section>
               </div>
               <div>
-                <label className={styles.important} for="month">
-                  Month
-                </label>
+                <label className={styles.important}>Month</label>
                 <section className={styles.day}>
                   <select
                     name="month"
                     className={styles.dropDown}
                     id={styles.month}
                     value={this.state.month}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     {monthOptions}
                   </select>
                 </section>
               </div>
               <div>
-                <label className={styles.important} for="year">
-                  Year
-                </label>
+                <label className={styles.important}>Year</label>
                 <section className={styles.day}>
                   <select
                     name="year"
                     className={styles.dropDown}
                     id={styles.year}
                     value={this.state.year}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     {yearOptions}
                   </select>
                 </section>
               </div>
               <div>
-                <label className={styles.important} for="timeZone">
-                  Time Zone
-                </label>
+                <label className={styles.important}>Time Zone</label>
                 <section className={styles.timeZone}>
                   <select
                     name="timezone"
                     className={styles.dropDown}
                     id={styles.timeZone}
                     value={this.state.timezone}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     <option value="--">--</option>
                     <option value="CDT">CDT</option>
@@ -439,7 +388,7 @@ class CreateWebinar extends Component {
                 </section>
               </div>
               <div>
-                <label className={styles.important} for="webinarDuration">
+                <label className={styles.important}>
                   Duration (In Minutes)
                 </label>
                 <section className={styles.duration}>
@@ -448,18 +397,14 @@ class CreateWebinar extends Component {
                     className={styles.dropDown}
                     id={styles.webinarDuration}
                     value={this.state.webinarDuration}
-                    onChange={(event) => {
-                      this.handleInputChange(event);
-                    }}
+                    onChange={this.handleInputChange}
                   >
                     {durOptions}
                   </select>
                 </section>
               </div>
             </div>
-            <div className={styles.tagHeader} for="webinarDuration">
-              Tags
-            </div>
+            <div className={styles.tagHeader}>Tags</div>
             <div className={styles.tagContainer}>
               <label className={styles.checkBox}>
                 Introduction
@@ -468,9 +413,7 @@ class CreateWebinar extends Component {
                   name="introduction"
                   value={this.state.introduction}
                   className={styles.tag}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
+                  onChange={this.trueFalseRadio}
                 />
                 <span className={styles.checkmark}></span>
               </label>
@@ -481,9 +424,7 @@ class CreateWebinar extends Component {
                   name="lecture"
                   value={this.state.lecture}
                   className={styles.tag}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
+                  onChange={this.trueFalseRadio}
                 />
                 <span className={styles.checkmark}></span>
               </label>
@@ -494,9 +435,7 @@ class CreateWebinar extends Component {
                   name="lab"
                   value={this.state.lab}
                   className={styles.tag}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
+                  onChange={this.trueFalseRadio}
                 />
                 <span className={styles.checkmark}></span>
               </label>
@@ -507,9 +446,7 @@ class CreateWebinar extends Component {
                   name="review"
                   value={this.state.review}
                   className={styles.tag}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
+                  onChange={this.trueFalseRadio}
                 />
                 <span className={styles.checkmark}></span>
               </label>
@@ -520,15 +457,13 @@ class CreateWebinar extends Component {
                   name="bonus"
                   value={this.state.bonus}
                   className={styles.tag}
-                  onChange={(e) => {
-                    this.trueFalseRadio(e);
-                  }}
+                  onChange={this.trueFalseRadio}
                 />
                 <span className={styles.checkmark}></span>
               </label>
             </div>
             <div className={styles.buddy}>
-              <button className={styles.myBud} onClick={() => this.onSubmit()}>
+              <button className={styles.myBud} onClick={this.onSubmit}>
                 Submit
               </button>
             </div>

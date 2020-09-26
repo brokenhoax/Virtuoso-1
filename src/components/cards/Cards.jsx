@@ -12,8 +12,8 @@ const Cards = (props) => {
   const webinars = webinarContext;
 
   // Using User Context
-  const userContext = useUser();
-  const user = userContext;
+  // const userContext = useUser();
+  // const user = userContext;
 
   // Logic to Change Image
   function getImage(photo) {
