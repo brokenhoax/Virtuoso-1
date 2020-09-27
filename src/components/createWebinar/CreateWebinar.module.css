@@ -199,13 +199,16 @@ label.important:after {
 
 .myBud {
   border: none;
+  margin: 0.5rem;
   border-radius: 0.3rem;
-  font-size: 2rem;
+  font-size: 1rem;
   background-color: #005082;
   color: white;
-  margin-top: 2rem;
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
+  margin-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 .tagHeader {

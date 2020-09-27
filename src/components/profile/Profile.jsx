@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import styles from "./SignedIn.module.css";
 import selyts from "./SignedOut.module.css";
-import react from "../../images/user.png"
+import userPic from "../../images/user.png"
 import "../../App.css";
 import axios from "axios";
 
@@ -165,7 +165,7 @@ const Profile = () => {
             <h1 className={styles.profileHeader}>My Profile</h1>
             <div className={styles.userImage}>
               <img
-                src="../../assets/images/User.png"
+                src={userPic}
                 className={styles.userPic}
                 alt="User Profile"
               />

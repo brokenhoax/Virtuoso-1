@@ -5,8 +5,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 25%;
-  margin-right: 25%;
   background-color: #e4e1ec;
   color: #005082;
   height: 100%;
@@ -18,17 +16,17 @@
 }
 
 .profileHeader {
-  margin-bottom: 4rem;
+
   text-align: center;
   font-weight: bold;
 }
 
 .loggedKey {
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .loggedValue {
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .inputField {
@@ -51,12 +49,18 @@
 }
 
 .myBud {
-  margin: 0.5rem;
+  display: block;
   border: none;
+  margin: 0.5rem;
   border-radius: 0.3rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   background-color: #005082;
   color: white;
+  margin-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 @media only screen and (max-width: 1350x) {
