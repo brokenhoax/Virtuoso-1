@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51cbfbab96f64938744bf83d379cbf45",
+    "revision": "98959124ef38e5475cadb0258eba01f8",
     "url": "/Virtuoso-1/index.html"
   },
   {
-    "revision": "73643fd0b3c41c00a92e",
+    "revision": "470d9f7a9028a5e8efff",
     "url": "/Virtuoso-1/static/css/2.16cbc45f.chunk.css"
   },
   {
-    "revision": "8c98da9c8c13965f0442",
+    "revision": "dd38b88b0b269c04af1a",
     "url": "/Virtuoso-1/static/css/main.b4045427.chunk.css"
   },
   {
-    "revision": "73643fd0b3c41c00a92e",
-    "url": "/Virtuoso-1/static/js/2.6421f1d9.chunk.js"
+    "revision": "470d9f7a9028a5e8efff",
+    "url": "/Virtuoso-1/static/js/2.45ded7c2.chunk.js"
   },
   {
     "revision": "0751bfd205c1978cf12bc3079a5622a6",
-    "url": "/Virtuoso-1/static/js/2.6421f1d9.chunk.js.LICENSE.txt"
+    "url": "/Virtuoso-1/static/js/2.45ded7c2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8c98da9c8c13965f0442",
-    "url": "/Virtuoso-1/static/js/main.8ff39edf.chunk.js"
+    "revision": "dd38b88b0b269c04af1a",
+    "url": "/Virtuoso-1/static/js/main.2140b4de.chunk.js"
   },
   {
     "revision": "6d42a0e27c6779a9ef14",
