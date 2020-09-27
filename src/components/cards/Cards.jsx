@@ -1,9 +1,16 @@
 // import React from "react";
 import React from "react";
 import { useWebinar } from "../../utils/WebinarContext";
-import { useUser } from "../../utils/UserContext";
+// import { useUser } from "../../utils/UserContext";
 import styles from "./Cards.module.css";
 import CardItem from "../cardItem/CardItem";
+import javascript from "../../images/javascript.png"
+import nodejs from "../../images/nodejs.png"
+import mongodb from "../../images/mongodb.png"
+import angular from "../../images/angular.jpg"
+import python from "../../images/python.jpg"
+import react from "../../images/react.jpg"
+
 import axios from "axios";
 
 const Cards = (props) => {
@@ -18,27 +25,27 @@ const Cards = (props) => {
   // Logic to Change Image
   function getImage(photo) {
     if (photo === "JavaScript") {
-      return (photo = "assets/images/JavaScript.png");
+      return (photo = javascript);
     }
 
     if (photo === "React") {
-      return (photo = "assets/images/React.jpg");
+      return (photo = react);
     }
 
     if (photo === "Python") {
-      return (photo = "assets/images/Python.jpg");
+      return (photo = python);
     }
 
     if (photo === "MongoDB") {
-      return (photo = "assets/images/MongoDB.png");
+      return (photo = mongodb);
     }
 
     if (photo === "Node JS") {
-      return (photo = "assets/images/Node JS.png");
+      return (photo = nodejs);
     }
 
     if (photo === "Angular") {
-      return (photo = "assets/images/Angular.jpg");
+      return (photo = angular);
     }
   }
 

@@ -1,4 +1,5 @@
 {
+  "homepage": "http://brokenhoax.github.io/Virtuoso-1",
   "name": "virtuoso",
   "version": "0.1.0",
   "private": true,
@@ -22,7 +23,6 @@
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.3",
     "cors": "^2.8.5",
-    "gh-pages": "^3.1.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-chartjs-2": "^2.10.0",
@@ -52,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

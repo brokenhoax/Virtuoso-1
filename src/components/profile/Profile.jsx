@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import styles from "./SignedIn.module.css";
 import selyts from "./SignedOut.module.css";
+import react from "../../images/user.png"
 import "../../App.css";
 import axios from "axios";
 
